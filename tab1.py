@@ -4,6 +4,9 @@ import tab2
 import sys
 import time
 import copy
+import pygame
+import time
+
 
 import cv2
 from PyQt5.QtCore import *
@@ -30,7 +33,7 @@ def most_frequent(List):
     return num
 
 class FirstTab(QWidget):
-    def __init(self):
+    def __init__(self):
         super().__init__()
 
     def getPixmap(self, dir):
@@ -171,8 +174,126 @@ class FirstTab(QWidget):
             # suggestionText = emotion_to_word2[self.emotion] + " 때는 이 노래가 최고죠ㅎㅎ"
             suggestionText = "절대로 고개를 떨구지 말라.\n고개를 들고 세상을 똑바로 바라보라."
         suggestionBox.setText(suggestionText)
-        suggestionBox.setStyleSheet("QTextEdit {background-color: rgb(241, 241, 241); border-radius: 10px; padding: 10px;}")
+        suggestionBox.setStyleSheet("QTextEdit {background-color: rgb(241, 241, 241); border-radius: 10px; padding: 10px; z-index: -1;}")
         suggestionBox.setAlignment(Qt.AlignVCenter)
-        suggestionBox.setGeometry(90, 166, 250, 56)
+        suggestionBox.setGeometry(90, 166, 250, 130)
         suggestionBox.setReadOnly(True)
         suggestionBox.show()
+
+        self.__musicTread = MusicPlay()
+
+        # 음악 재생 버튼
+        self.__play_btn = QPushButton(self)
+        play_icon = QtGui.QIcon('./tab1_photo/play.png')
+        self.__play_btn.setIcon(play_icon)
+        self.__play_btn.setIconSize(QSize(30, 30))
+        self.__play_btn.setGeometry(105, 235, 30, 30)       # 65, 150, 110, 190
+        self.__play_btn.setStyleSheet("{background-color: rgba(241, 241, 241, 0);}")
+        self.__play_btn.show()
+
+        # 음악 멈춤 버튼
+        self.__stop_btn = QPushButton(self)
+        stop_icon = QtGui.QIcon('./tab1_photo/pause.png')
+        self.__stop_btn.setIcon(stop_icon)
+        self.__stop_btn.setIconSize(QSize(30, 30))
+        self.__stop_btn.setGeometry(105, 235, 30, 30)
+        self.__stop_btn.setStyleSheet("{background-color: rgba(241, 241, 241, 0);}")
+        self.__stop_btn.hide()
+
+        # # 음악 재생 버튼
+        # self.play_btn = QPushButton(self)
+        # self.play_btn.setGeometry(65, 150, 110, 190)
+        # play_icon = QtGui.QIcon('./tab1_photo/play.png')
+        # self.play_btn.setIcon(play_icon)
+        # self.play_btn.setIconSize(QSize(30, 30))
+        # self.play_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        # self.play_btn.show()
+        #
+        #
+        # # 음악 멈춤 버튼
+        # self.stop_btn = QPushButton(self)
+        # self.stop_btn.setGeometry(65, 150, 110, 190)
+        # stop_icon = QtGui.QIcon('./tab1_photo/pause.png')
+        # self.stop_btn.setIcon(stop_icon)
+        # self.stop_btn.setIconSize(QSize(30, 30))
+        # self.stop_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        # self.stop_btn.hide()
+
+
+        # music wave
+        try:
+            movie = QMovie('./tab1_photo/wave.gif')  # , QByteArray(), self
+            movie.setScaledSize(QSize(150,100))
+            music_label = QLabel(self)
+            music_label.setMovie(movie)
+            music_label.show()
+            music_label.setGeometry(150, 220, 150, 60)
+
+            movie.start()
+            movie.loopCount()
+        except Exception as e:
+            print(e)
+
+
+
+
+        self.musicTread = MusicPlay()
+        self.__play_btn.clicked.connect(lambda: self.music_play("play"))  # 재생
+        self.__stop_btn.clicked.connect(lambda: self.music_pause("pause"))    # 멈춤
+
+        # self.musicTread.start()
+        # self.musicTread.
+        # self.musicTread.stop()
+
+
+    def music_play(self, part):
+        if part == "play":
+            self.__musicTread.start()
+            self.__stop_btn.show()
+            self.__play_btn.hide()
+
+        elif part == "pause":
+
+
+            self.__stop_btn.hide()
+            self.__play_btn.show()
+
+
+    # def music_pause(self):
+    #     self.musicTread = MusicPlay()
+    #     self.musicTread.start()
+
+
+
+class MusicPlay(QThread):
+    def __init__(self, parent=None):
+        super(MusicPlay, self).__init__(parent)
+
+    def run(self):
+
+        path = "./media/"
+        music_name = "test1.mid"
+        music_file = path + music_name
+
+
+        freq = 44100  # audio CD quality
+        bitsize = -16  # unsigned 16 bit
+        channels = 2  # 1 is mono, 2 is stereo
+        buffer = 1024  # number of samples
+        pygame.mixer.init(freq, bitsize, channels, buffer)
+        pygame.mixer.music.set_volume(1)
+
+        clock = pygame.time.Clock()
+        try:
+            pygame.mixer.music.load(music_file)
+            print(" %s 로드" % music_file)
+        except pygame.error:
+            print(" %s 에러 (%s)" % (music_file, pygame.get_error()))
+
+        pygame.mixer.music.play()
+
+        while pygame.mixer.music.get_busy():
+            # check if playback has finished
+            clock.tick(30)
+
+
