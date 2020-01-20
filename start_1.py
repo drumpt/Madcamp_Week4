@@ -18,6 +18,7 @@ class StartDialog():
         self.__musicTread.start()
 
 
+
     @property
     def cat_index(self):
         return self.__cat_index
@@ -27,31 +28,57 @@ class StartDialog():
         self.__cat_index = index
 
 
+
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.setGeometry(600, 300, 640, 480)
-        Dialog.setStyleSheet("QWidget {background-color: white;}")
+        Dialog.setStyleSheet("background-image: url(./tab1_photo/bgi.jpg); font-family:'배달의민족 주아'; src:'BMJUA_ttf.ttf'")
+        Dialog.setWindowTitle("다재다냥★♬")
 
-        # 냥이 선택 창
-        self.select_cat("next", Dialog)
+
+
+        self.start_btn = QPushButton(Dialog)
+        self.start_btn.setGeometry(250, 100, 150, 150)
+        start_icon = QtGui.QIcon('./tab1_photo/git.png')
+        self.start_btn.setIcon(start_icon)
+        self.start_btn.setIconSize(QtCore.QSize(150, 150))
+        self.start_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+
+        self.start_btn.clicked.connect(lambda: self.second(Dialog))
+
+
 
         # 로고
         self.logo_img = QPixmap()
-        self.cat_imgs.load("logo5.png")
-        self.logo_img = self.cat_imgs.scaled(QSize(330, 150))
+        self.logo_img.load("./tab1_photo/logo_1.png")
+        self.logo_img = self.logo_img.scaled(QSize(500, 130))
         self.logo_label = QLabel(Dialog)
         self.logo_label.setPixmap(self.logo_img)
         self.logo_label.show()
-        self.logo_label.setGeometry(170, 0, 330, 150)
+        self.logo_label.setGeometry(85, 280, 500, 130)
+
+
+
+
+
+
+    def second(self,Dialog):
+        # 냥이 선택 창
+        print("클릭됨")
+        self.select_cat("next", Dialog)
+
+        self.logo_label.hide()
+        self.start_btn.hide()
 
 
         self.title = QLabel(Dialog)
         _translate = QtCore.QCoreApplication.translate
-        self.title.setText(_translate("Dialog", "가장 마음에 드는 냥이를 선택하세요"))
-        self.title.setStyleSheet(" { font-family: 'Malgun Gothic';}")
+        self.title.setText(_translate("Dialog", "가장 마음에 드는 펫을 선택하세요"))
+        self.title.setFont(QtGui.QFont('배달의민족 주아', 15))
+        # self.title.setStyleSheet("Color:red")
 
-        self.title.setGeometry(170, 100, 300, 50)
-        # self.title.setReadOnly(True)
+        self.title.setGeometry(185, 50, 300, 50)
+        self.title.show()
 
 
 
@@ -69,6 +96,7 @@ class StartDialog():
         self.previous_btn.setIcon(previous_icon)
         self.previous_btn.setIconSize(QtCore.QSize(80, 80))
         self.previous_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.previous_btn.show()
 
         # next 버튼
         self.next_btn = QPushButton(Dialog)
@@ -77,6 +105,7 @@ class StartDialog():
         self.next_btn.setIcon(next_icon)
         self.next_btn.setIconSize(QtCore.QSize(80, 80))
         self.next_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.next_btn.show()
 
         # # 실행 버튼
         # self.onoff = QDialogButtonBox(Dialog)
@@ -125,7 +154,7 @@ class StartDialog():
 
     def startMainwindow(self, Dialog):
         Dialog.reject()
-        print("Hi 1")
+        # print("Hi 1")
         window = main.mainWindow()
         print("Hi 2")
         window.init_window()
@@ -136,13 +165,18 @@ class StartDialog():
         print("Hi 5")
         window.tab1.add_suggestion_box()
         print("Hi 6")
+        window.tab1.add_response_box()
+        print("hi 7")
+        # window.tab2.setupUi()
+
+        window.tab2.setupUi()
+
 
     # 냥이 사진 select
     def select_cat(self, part, Dialog):
-        # 사진 path
+
         img_path = "./images"
         cat_list = os.listdir(img_path)
-
         # index 계산
         if part == "previous":
             if self.__cat_index == 0:   # 맨 첫번째인데 previous
@@ -156,9 +190,11 @@ class StartDialog():
             else:
                 self.__cat_index += 1
 
+
         img_path = img_path+"/"+cat_list[self.__cat_index]
         self.img_path = img_path
-        print("인덱스" + str(self.__cat_index))
+
+        print("인덱스 " + str(self.__cat_index))
         print(img_path)
 
         # 캐릭터 보여주기
@@ -171,7 +207,21 @@ class StartDialog():
         # self.cat_label.setImage(self.cat_imgs)
         self.cat_label.setPixmap(self.cat_imgs)
         self.cat_label.show()
-        self.cat_label.setGeometry(180, 140, 250, 250)
+        self.cat_label.setGeometry(190, 90, 250, 250)
+
+        self.cat_txtname = QLabel(Dialog)
+        file_name = cat_list[self.__cat_index]
+        cat_name = file_name[:-4]
+        print(cat_name)
+        self.cat_txtname.setText(cat_name)
+        # self.cat_txtname.setStyleSheet(" { font-family: 'Malgun Gothic'; background-color: rgba(255, 255, 255, 0%);}")
+        self.cat_txtname.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.cat_txtname.setFont(QtGui.QFont('배달의민족 주아', 15))
+        self.cat_txtname.setGeometry(290, 350, 50, 30)
+        self.cat_txtname.show()
+
+
+
 
 class MusicPlay(QThread):
     def __init__(self, parent=None):
@@ -209,5 +259,5 @@ class MusicPlay(QThread):
 #     ui.setupUi(Dialog)
 #     Dialog.show()
 #
-#     # sys.exit(app.exec_())
-#
+#     sys.exit(app.exec_())
+
