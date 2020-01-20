@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7af2d002-ae1e-4a2a-80ea-5384cb295e52" name="Default Changelist" comment="Tab1">
-      <change afterPath="$PROJECT_DIR$/media/electric_voice/init_sound.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/electric_voice/suggestion_angry.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/electric_voice/suggestion_happy.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/electric_voice/suggestion_sad.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/electric_voice/suggestion_sleepy.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/happy/test1.mid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/sad/test1.mid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/sleepy/test1.mid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tab1_photo/tab1_next.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/start_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tab1.py" beforeDir="false" afterPath="$PROJECT_DIR$/tab1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tab2.py" beforeDir="false" afterPath="$PROJECT_DIR$/tab2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +45,7 @@
       <recent name="C:\Users\q\Desktop\Week4\Program" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Program" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -78,6 +67,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tab2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Program" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tab2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.tab2" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -122,10 +137,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2472" y="179" key="#Inspections/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579521415897" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579279989444">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579559035114">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579279989444" />
+    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579559035114" />
     <state x="2645" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579523845783">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -140,26 +156,26 @@
     </state>
     <state x="619" y="220" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579361664139" />
     <state x="2539" y="220" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579522494332" />
-    <state width="949" height="205" key="GridCell.Tab.0.bottom" timestamp="1579558004270">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="949" height="205" key="GridCell.Tab.0.bottom" timestamp="1579559317721">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="205" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579558004270" />
-    <state width="949" height="205" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579554069762" />
-    <state width="949" height="205" key="GridCell.Tab.0.center" timestamp="1579558004270">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="949" height="205" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579559317721" />
+    <state width="949" height="205" key="GridCell.Tab.0.center" timestamp="1579559317721">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="205" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579558004270" />
-    <state width="949" height="205" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579554069761" />
-    <state width="949" height="205" key="GridCell.Tab.0.left" timestamp="1579558004270">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="949" height="205" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579559317721" />
+    <state width="949" height="205" key="GridCell.Tab.0.left" timestamp="1579559317721">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="205" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579558004270" />
-    <state width="949" height="205" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579554069761" />
-    <state width="949" height="205" key="GridCell.Tab.0.right" timestamp="1579558004270">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="949" height="205" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579559317721" />
+    <state width="949" height="205" key="GridCell.Tab.0.right" timestamp="1579559317721">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="205" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579558004270" />
-    <state width="949" height="205" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579554069762" />
+    <state width="949" height="205" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579559317721" />
     <state width="949" height="348" key="GridCell.Tab.1.bottom" timestamp="1579521496232">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

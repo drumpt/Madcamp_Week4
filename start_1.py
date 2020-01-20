@@ -153,6 +153,7 @@ class StartDialog():
         self.newWindow.init_window()
         print("Hi 3")
         self.newWindow.tab1.add_init_box(self.img_path)
+        self.newWindow.tab2.setupUi()
         Dialog.reject()
         self.__musicThread.stop()
         # self = main.mainWindow()
