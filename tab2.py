@@ -13,6 +13,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from tensorflow.keras.models import load_model
 
+
 class SecondTab(QWidget):
     def __init(self):
         print("Hi")
