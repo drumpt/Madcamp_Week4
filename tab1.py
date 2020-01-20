@@ -69,9 +69,11 @@ class FirstTab(QWidget):
         pm = pm.scaled(size, size, Qt.KeepAspectRatio, Qt.SmoothTransformation)
         return pm
 
-    def add_init_box(self):
+    def add_init_box(self, img_path):
+        self.img_path = img_path
+        print(self.img_path)
         catLabel = QLabel(self)
-        catLabel.setPixmap(self.getPixmap("./photo/로키.jpg"))
+        catLabel.setPixmap(self.getPixmap(self.img_path))
         catLabel.setGeometry(20, 20, 56, 56)
         # self.catLabel = catLabel
         catLabel.show()
@@ -160,7 +162,7 @@ class FirstTab(QWidget):
         emotion_to_word2 = {"happy": "기쁠", "sad": "슬플", "angry": "화날", "sleepy": "졸릴"}
 
         catLabel = QLabel(self)
-        catLabel.setPixmap(self.getPixmap("./photo/로키.jpg"))
+        catLabel.setPixmap(self.getPixmap(self.img_path))
         catLabel.setGeometry(20, 166, 56, 56)
         catLabel.show()
 
@@ -239,7 +241,7 @@ class FirstTab(QWidget):
 
         self.musicTread = MusicPlay()
         self.__play_btn.clicked.connect(lambda: self.music_play("play"))  # 재생
-        self.__stop_btn.clicked.connect(lambda: self.music_pause("pause"))    # 멈춤
+        self.__stop_btn.clicked.connect(lambda: self.music_play("pause"))    # 멈춤
 
         # self.musicTread.start()
         # self.musicTread.

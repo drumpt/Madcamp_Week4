@@ -1,5 +1,6 @@
 import tab1
 import tab2
+import start_1
 
 import sys
 import time
@@ -18,6 +19,7 @@ class mainWindow(QWidget):
         super().__init()
 
     def init_window(self):
+        print(1)
         self.setWindowTitle('Main window')
         self.setGeometry(600, 300, 640, 480)
         self.setStyleSheet("QWidget {background-color: white;}")
@@ -97,10 +99,10 @@ class mainWindow(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = mainWindow()
-    window.init_window()
-    window.tab1.add_init_box()
-    window.tab1.add_answer_box()
-    time.sleep(1)
-    window.tab1.add_suggestion_box()
+
+    ui = start_1.StartDialog()
+    Dialog = QDialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
+
     sys.exit(app.exec_())
