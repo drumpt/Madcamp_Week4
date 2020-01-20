@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7af2d002-ae1e-4a2a-80ea-5384cb295e52" name="Default Changelist" comment="Tab1">
-      <change afterPath="$PROJECT_DIR$/media/angry/마하반야심경.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/sleepy/굿모닝.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/sleepy/듣기만 해도 잠이 오는 음악.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/test1.mid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pausestop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/playpause2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tab1_photo/Cat_Dance4.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tab1_photo/audio_wave.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tab1_photo/pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tab1_photo/play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tab1_photo/wave.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tab1.py" beforeDir="false" afterPath="$PROJECT_DIR$/tab1.py" afterDir="false" />
-    </list>
+    <list default="true" id="7af2d002-ae1e-4a2a-80ea-5384cb295e52" name="Default Changelist" comment="magenta add" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,15 +30,15 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Anaconda3/envs/Program/NewConda" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Anaconda3/envs/Program/NewConda" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\q\Desktop\Week4\Program\media" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\q\Desktop\Week4\Program" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\q\Desktop\Week4\Program\media" />
     </key>
   </component>
   <component name="RunManager">
@@ -72,6 +54,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />

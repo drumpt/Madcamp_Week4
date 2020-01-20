@@ -389,7 +389,7 @@ SAMPLE_RATE = 10000
 
 model_name = 'transformer'
 hparams_set = 'transformer_tpu'
-uncondi_ckpt_path = './unconditional_model_16.ckpt/unconditional_model_16.ckpt'
+uncondi_ckpt_path = './contents/unconditional_model_16.ckpt/unconditional_model_16.ckpt'
 
 class PianoPerformanceLanguageModelProblem(score2perf.Score2PerfProblem):
     @property
