@@ -97,12 +97,16 @@ class mainWindow(QWidget):
     # def pause(self):
     #     self.player.pause()
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-
+def start1():
     ui = start_1.StartDialog()
     Dialog = QDialog()
     ui.setupUi(Dialog)
     Dialog.show()
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+
+    start1()
 
     sys.exit(app.exec_())
