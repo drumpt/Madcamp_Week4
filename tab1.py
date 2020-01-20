@@ -69,7 +69,8 @@ class FirstTab(QWidget):
         pm = pm.scaled(size, size, Qt.KeepAspectRatio, Qt.SmoothTransformation)
         return pm
 
-    def add_init_box(self):
+    def add_init_box(self, img_path):
+        self.img_path = img_path
         # def restart():
         #     global self
         #     self.restartButton.hide()
@@ -99,7 +100,7 @@ class FirstTab(QWidget):
         # restartButton.show()
 
         catLabel = QLabel(self)
-        catLabel.setPixmap(self.getPixmap("./photo/로키.jpg"))
+        catLabel.setPixmap(self.getPixmap(self.img_path))
         catLabel.setGeometry(20, 20, 56, 56)
         self.catLabel1 = catLabel
         catLabel.show()
@@ -191,7 +192,7 @@ class FirstTab(QWidget):
         emotion_to_word2 = {"happy": "기쁠", "sad": "슬플", "angry": "화날", "sleepy": "졸릴"}
 
         catLabel = QLabel(self)
-        catLabel.setPixmap(self.getPixmap("./photo/로키.jpg"))
+        catLabel.setPixmap(self.getPixmap(self.img_path))
         catLabel.setGeometry(20, 195, 56, 56)
         self.catLabel2 = catLabel
         catLabel.show()
