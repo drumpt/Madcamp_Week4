@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "Play"))
         self.pushButton_2.setText(_translate("MainWindow", "Pause"))
         self.pushButton.clicked.connect(self.pause)
-        self.url = QtCore.QUrl.fromLocalFile("./sample.mp3")
+        self.url = QtCore.QUrl.fromLocalFile("C:/Users/q/Desktop/Week4/Program/media/sample.mp3")
         self.content = M.QMediaContent(self.url)
         self.player = M.QMediaPlayer()
         self.player.setMedia(self.content)
