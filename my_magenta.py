@@ -6,6 +6,7 @@ import base64
 import collections
 import io
 import os
+import sys
 
 import tensorflow
 import tensorflow.compat.v1 as tf
@@ -13,6 +14,7 @@ import magenta
 import magenta.music as mm
 from magenta.music import midi_synth
 from magenta.music import constants
+
 
 import pretty_midi
 import bokeh
@@ -23,6 +25,7 @@ import pandas as pd
 from scipy.io import wavfile
 from six.moves import urllib
 import tempfile
+import six
 
 from magenta.models.melody_rnn import melody_rnn_sequence_generator
 from magenta.models.shared import sequence_generator_bundle
@@ -38,7 +41,6 @@ from tensor2tensor.data_generators import text_encoder
 from tensor2tensor.utils import decoding
 from tensor2tensor.utils import trainer_lib
 
-import pysynth as ps
 
 
 def note_sequence_to_midi_file(sequence, output_file,
@@ -120,7 +122,7 @@ def note_sequence_to_pretty_midi(
             continue
         key_number = seq_key.key
         if seq_key.mode == seq_key.MINOR:
-            key_number += _PRETTY_MIDI_MAJOR_TO_MINOR_OFFSET
+            key_number += mm.midi_io._PRETTY_MIDI_MAJOR_TO_MINOR_OFFSET
         key_signature = pretty_midi.containers.KeySignature(
             key_number, seq_key.time)
         pm.key_signature_changes.append(key_signature)
@@ -239,7 +241,7 @@ def midi_to_note_sequence(midi_data):
         try:
             midi = pretty_midi.PrettyMIDI(six.BytesIO(midi_data))
         except:
-            raise MIDIConversionError('Midi decoding error %s: %s' %
+            raise mm.midi_io.MIDIConversionError('Midi decoding error %s: %s' %
                                       (sys.exc_info()[0], sys.exc_info()[1]))
     # pylint: enable=bare-except
 
@@ -260,7 +262,7 @@ def midi_to_note_sequence(midi_data):
             # Denominator can be too large for int32.
             time_signature.denominator = midi_time.denominator
         except ValueError:
-            raise MIDIConversionError('Invalid time signature denominator %d' %
+            raise mm.midi_io.MIDIConversionError('Invalid time signature denominator %d' %
                                       midi_time.denominator)
 
     # Populate key signatures.
@@ -274,7 +276,7 @@ def midi_to_note_sequence(midi_data):
         elif midi_mode == 1:
             key_signature.mode = key_signature.MINOR
         else:
-            raise MIDIConversionError('Invalid midi_mode %i' % midi_mode)
+            raise mm.midi_io.MIDIConversionError('Invalid midi_mode %i' % midi_mode)
 
     # Populate tempo changes.
     tempo_times, tempo_qpms = midi.get_tempo_changes()
