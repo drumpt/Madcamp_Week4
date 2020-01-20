@@ -264,8 +264,6 @@ class FirstTab(QWidget):
             responseBox2.setReadOnly(True)
             self.responseBox = responseBox2
             responseBox2.show()
-
-        def refresh():
             # self.catLabel2.hide()
             # self.suggestionBox.hide()
             # self.play_btn.hide()
@@ -276,6 +274,8 @@ class FirstTab(QWidget):
             # self.okayButton.hide()
             # self.refreshButton.hide()
             # 더 음악이 추가되면 그런 것들도 hide해야 함.
+
+        def refresh():
             self.add_suggestion_box()
             # self.add_response_box()
 
