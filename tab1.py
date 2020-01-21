@@ -83,7 +83,7 @@ class FirstTab(QWidget):
         print("여기까지 됩니다ㅎㅎ")
 
         initBox = QTextEdit(self)
-        initBox.setText("안녕하세요. 오늘 하루는 어떠셨나요? 당신의 기분이 궁금해요!")
+        initBox.setText("안녕하세요. 오늘 하루는 어떠셨나요?\n당신의 기분이 궁금해요!")
         initBox.setStyleSheet("QTextEdit {background-color: rgb(241, 241, 241); border-radius: 10px; padding: 10px;}")
         initBox.setAlignment(Qt.AlignVCenter)
         initBox.setGeometry(90, 20, 250, 56)
