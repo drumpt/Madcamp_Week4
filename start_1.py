@@ -124,6 +124,7 @@ class StartDialog():
         self.newWindow.tab1.add_init_box(self.img_path)
         self.newWindow.tab2.setupUi()
         self.newWindow.tab3.init_window()
+        self.newWindow.tab4.init_window()
 
     # 냥이 사진 select
     def select_cat(self, part, Dialog):
