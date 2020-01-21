@@ -18,7 +18,7 @@ class mainWindow(QWidget):
     def init_window(self):
         self.setWindowTitle('다재다냥★♬')
         self.setGeometry(600, 300, 640, 480)
-        self.setStyleSheet("QWidget {background-color: white;}")
+        self.setStyleSheet("QWidget {background-color: white; }")
 
         self.tab1 = tab1.FirstTab()
         self.tab2 = tab2.SecondTab()
@@ -41,8 +41,8 @@ if __name__ == "__main__":
 
     # my_magenta 실행
     # exec('my_magenta')
-    os.system('python my_magenta.py')
-    print("돼?>")
+    # os.system('python my_magenta.py')
+    # print("돼?>")
 
     ui = start_1.StartDialog()
     Dialog = QDialog()
