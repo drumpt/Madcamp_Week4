@@ -2,9 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7af2d002-ae1e-4a2a-80ea-5384cb295e52" name="Default Changelist" comment="magenta add">
-      <change beforePath="$PROJECT_DIR$/.idea/Program.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Program.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BMJUA_ttf.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bgm.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bgm2.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/electric_voice/init_sound.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/electric_voice/suggestion_angry.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/electric_voice/suggestion_happy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/electric_voice/suggestion_sad.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/electric_voice/suggestion_sleepy.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/happy/test1.mid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/sad/test1.mid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/sleepy/test1.mid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tab1_photo/bgi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tab1_photo/git.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tab1_photo/logo_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tab1_photo/next.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tab1_photo/previous.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tab1_photo/tab1_next.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tab2_photo/Cat_Dance4.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tab2_photo/download_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tab2_photo/jyp.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logo5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_magenta.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_magenta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/photo.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/previous.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/start_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tab1.py" beforeDir="false" afterPath="$PROJECT_DIR$/tab1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tab2.py" beforeDir="false" afterPath="$PROJECT_DIR$/tab2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +62,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Anaconda3/envs/Program/NewConda" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -91,6 +120,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579278719569</updated>
+      <workItem from="1579602682396" duration="1688000" />
     </task>
     <task id="LOCAL-00001" summary="Tab1">
       <created>1579498851149</created>
@@ -108,6 +138,9 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -134,32 +167,36 @@
     </state>
     <state x="609" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579498859020" />
     <state x="2529" y="114" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579558903552" />
-    <state x="2539" y="220" key="FileChooserDialogImpl" timestamp="1579557797040">
+    <state x="2539" y="220" key="FileChooserDialogImpl" timestamp="1579603764960">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="619" y="220" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579361664139" />
     <state x="2539" y="220" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579522494332" />
-    <state x="2539" y="220" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579557797040" />
-    <state width="949" height="205" key="GridCell.Tab.0.bottom" timestamp="1579531358859">
+    <state x="2539" y="220" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579603764960" />
+    <state width="1340" height="269" key="GridCell.Tab.0.bottom" timestamp="1579612488474">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="205" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579510482928" />
     <state width="949" height="205" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579531358859" />
-    <state width="949" height="205" key="GridCell.Tab.0.center" timestamp="1579531358859">
+    <state width="1340" height="269" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579612488474" />
+    <state width="1340" height="269" key="GridCell.Tab.0.center" timestamp="1579612488474">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="205" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579510482928" />
     <state width="949" height="205" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579531358859" />
-    <state width="949" height="205" key="GridCell.Tab.0.left" timestamp="1579531358859">
+    <state width="1340" height="269" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579612488474" />
+    <state width="1340" height="269" key="GridCell.Tab.0.left" timestamp="1579612488474">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="205" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579510482928" />
     <state width="949" height="205" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579531358859" />
-    <state width="949" height="205" key="GridCell.Tab.0.right" timestamp="1579531358859">
+    <state width="1340" height="269" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579612488474" />
+    <state width="1340" height="269" key="GridCell.Tab.0.right" timestamp="1579612488474">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="949" height="205" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579510482928" />
     <state width="949" height="205" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579531358859" />
+    <state width="1340" height="269" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579612488474" />
     <state width="949" height="348" key="GridCell.Tab.1.bottom" timestamp="1579521496232">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -180,17 +217,18 @@
     </state>
     <state width="949" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579498867022" />
     <state width="949" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579521496232" />
-    <state x="2543" y="161" width="1206" height="779" key="SettingsEditor" timestamp="1579558337800">
+    <state x="2508" y="32" width="1206" height="779" key="SettingsEditor" timestamp="1579612485825">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="831" y="161" width="998" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579426252564" />
     <state x="2751" y="161" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579522800171" />
-    <state x="2543" y="161" width="1206" height="779" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579558337800" />
-    <state x="2572" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1579521557918">
+    <state x="2508" y="32" width="1206" height="779" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579612485825" />
+    <state x="2572" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1579602689569">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="652" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579279925926" />
     <state x="2572" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579521557918" />
+    <state x="2572" y="344" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579602689569" />
     <state x="764" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579498831971">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -200,5 +238,8 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2602" y="432" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579520503655" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Week4$main.coverage" NAME="main Coverage Results" MODIFIED="1579603752170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

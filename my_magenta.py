@@ -198,13 +198,10 @@ def note_sequence_to_pretty_midi(
 
 def midi_file_to_note_sequence(midi_file):
     """Converts MIDI file to a NoteSequence.
-
     Args:
       midi_file: A string path to a MIDI file.
-
     Returns:
       A NoteSequence.
-
     Raises:
       MIDIConversionError: Invalid midi_file.
     """
@@ -215,18 +212,14 @@ def midi_file_to_note_sequence(midi_file):
 
 def midi_to_note_sequence(midi_data):
     """Convert MIDI file contents to a NoteSequence.
-
     Converts a MIDI file encoded as a string into a NoteSequence. Decoding errors
     are very common when working with large sets of MIDI files, so be sure to
     handle MIDIConversionError exceptions.
-
     Args:
       midi_data: A string containing the contents of a MIDI file or populated
           pretty_midi.PrettyMIDI object.
-
     Returns:
       A NoteSequence.
-
     Raises:
       MIDIConversionError: An improper MIDI mode was supplied.
     """
@@ -384,8 +377,10 @@ def music_vae_sample_to_note_sequence(model, num):
   return generated_sequences[0]
 
 
+
 ######################음악만들기하기전에이부분실행시키고해야하는데#################
 ####################################################################################
+print('실행되냐???????????')
 SF2_PATH = './soundfonts/Yamaha-C5-Salamander-JNv5.1.sf2'
 SAMPLE_RATE = 10000
 
