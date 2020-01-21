@@ -6,6 +6,7 @@ import base64
 import collections
 import io
 import os
+import sys
 
 import tensorflow
 import tensorflow.compat.v1 as tf
@@ -23,6 +24,7 @@ import pandas as pd
 from scipy.io import wavfile
 from six.moves import urllib
 import tempfile
+import six
 
 from magenta.models.melody_rnn import melody_rnn_sequence_generator
 from magenta.models.shared import sequence_generator_bundle
@@ -38,7 +40,6 @@ from tensor2tensor.data_generators import text_encoder
 from tensor2tensor.utils import decoding
 from tensor2tensor.utils import trainer_lib
 
-import pysynth as ps
 
 
 def note_sequence_to_midi_file(sequence, output_file,
@@ -120,7 +121,7 @@ def note_sequence_to_pretty_midi(
             continue
         key_number = seq_key.key
         if seq_key.mode == seq_key.MINOR:
-            key_number += _PRETTY_MIDI_MAJOR_TO_MINOR_OFFSET
+            key_number += mm.midi_io._PRETTY_MIDI_MAJOR_TO_MINOR_OFFSET
         key_signature = pretty_midi.containers.KeySignature(
             key_number, seq_key.time)
         pm.key_signature_changes.append(key_signature)
@@ -196,13 +197,10 @@ def note_sequence_to_pretty_midi(
 
 def midi_file_to_note_sequence(midi_file):
     """Converts MIDI file to a NoteSequence.
-
     Args:
       midi_file: A string path to a MIDI file.
-
     Returns:
       A NoteSequence.
-
     Raises:
       MIDIConversionError: Invalid midi_file.
     """
@@ -213,18 +211,14 @@ def midi_file_to_note_sequence(midi_file):
 
 def midi_to_note_sequence(midi_data):
     """Convert MIDI file contents to a NoteSequence.
-
     Converts a MIDI file encoded as a string into a NoteSequence. Decoding errors
     are very common when working with large sets of MIDI files, so be sure to
     handle MIDIConversionError exceptions.
-
     Args:
       midi_data: A string containing the contents of a MIDI file or populated
           pretty_midi.PrettyMIDI object.
-
     Returns:
       A NoteSequence.
-
     Raises:
       MIDIConversionError: An improper MIDI mode was supplied.
     """
@@ -239,7 +233,7 @@ def midi_to_note_sequence(midi_data):
         try:
             midi = pretty_midi.PrettyMIDI(six.BytesIO(midi_data))
         except:
-            raise MIDIConversionError('Midi decoding error %s: %s' %
+            raise mm.midi_io.MIDIConversionError('Midi decoding error %s: %s' %
                                       (sys.exc_info()[0], sys.exc_info()[1]))
     # pylint: enable=bare-except
 
@@ -260,7 +254,7 @@ def midi_to_note_sequence(midi_data):
             # Denominator can be too large for int32.
             time_signature.denominator = midi_time.denominator
         except ValueError:
-            raise MIDIConversionError('Invalid time signature denominator %d' %
+            raise mm.midi_io.MIDIConversionError('Invalid time signature denominator %d' %
                                       midi_time.denominator)
 
     # Populate key signatures.
@@ -274,7 +268,7 @@ def midi_to_note_sequence(midi_data):
         elif midi_mode == 1:
             key_signature.mode = key_signature.MINOR
         else:
-            raise MIDIConversionError('Invalid midi_mode %i' % midi_mode)
+            raise mm.midi_io.MIDIConversionError('Invalid midi_mode %i' % midi_mode)
 
     # Populate tempo changes.
     tempo_times, tempo_qpms = midi.get_tempo_changes()
@@ -382,14 +376,16 @@ def music_vae_sample_to_note_sequence(model, num):
   return generated_sequences[0]
 
 
+
 ######################음악만들기하기전에이부분실행시키고해야하는데#################
 ####################################################################################
+print('실행되냐???????????')
 SF2_PATH = './soundfonts/Yamaha-C5-Salamander-JNv5.1.sf2'
 SAMPLE_RATE = 10000
 
 model_name = 'transformer'
 hparams_set = 'transformer_tpu'
-uncondi_ckpt_path = './unconditional_model_16.ckpt/unconditional_model_16.ckpt'
+uncondi_ckpt_path = './contents/unconditional_model_16.ckpt/unconditional_model_16.ckpt'
 
 class PianoPerformanceLanguageModelProblem(score2perf.Score2PerfProblem):
     @property

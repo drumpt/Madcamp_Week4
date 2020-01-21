@@ -1,35 +1,34 @@
+import sys
+import os
+
+# from PyQt5 import QtM
+from PyQt5.QtWidgets import *
+
+import start_1
 import tab1
 import tab2
-import start_1
+import tab3
+# import my_magenta
 
-import sys
-import time
-import copy
-
-import cv2
-from PyQt5.QtCore import *
-from PyQt5 import QtGui
-# from PyQt5 import QtM
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
-from tensorflow.keras.models import load_model
 
 class mainWindow(QWidget):
     def __init(self):
         super().__init()
 
     def init_window(self):
-        print(1)
-        self.setWindowTitle('Main window')
+        self.setWindowTitle('다재다냥★♬')
         self.setGeometry(600, 300, 640, 480)
-        self.setStyleSheet("QWidget {background-color: white;}")
+        self.setStyleSheet("QWidget {background-color: white; }")
 
         self.tab1 = tab1.FirstTab()
         self.tab2 = tab2.SecondTab()
+        self.tab3 = tab3.ThirdTab()
 
         tabwidget = QTabWidget()
-        tabwidget.addTab(self.tab1, "First Tab")
-        tabwidget.addTab(self.tab2, "Second Tab")
+        tabwidget.addTab(self.tab1, "노래 추천")
+        tabwidget.addTab(self.tab2, "편곡")
+        tabwidget.addTab(self.tab3, "그림")
+        # tabwidget.setStyleSheet("QTabBar::tab { height: 30px;   background-image: url(./tab1_photo/bgi.jpg);}")
 
         vbox = QVBoxLayout()
         vbox.addWidget(tabwidget)
@@ -37,76 +36,16 @@ class mainWindow(QWidget):
         self.setLayout(vbox)
         self.show()
 
-        # sound = AudioSegment.from_file("C:/Users/q/Desktop/Week4/Program/twinkle_twinkle_melodyRNN.mid")
-        # # sound.export("C:/Users/q/Desktop/Week4/Program/twinkle_twinkle_melodyRNN", format = "mp3", bitrate = "128k")
-        # fruits = ['바나나', '사과', '멜론', '참외']
-        # listview = QListView(self)
-        # model = QStandardItemModel()
-        # for fruit in fruits:
-        #     model.appendRow(QStandardItem(fruit))
-        # listview.setModel(model)
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
 
-        # play_button = QPushButton("Play")
-        # pause_button = QPushButton("Pause")
-        # horizontal_box = QHBoxLayout()
-        # horizontal_box.addwidget(play_button)
-        # horizontal_box.addWidget(pause_button)
-        # self.setLayout(horizontal_box)
+    # my_magenta 실행
+    # exec('my_magenta')
+    # os.system('python my_magenta.py')
+    # print("돼?>")
 
-    #     self.centralwidget = QtWidgets.QWidget(QMainWindow)
-    #     self.centralwidget.setObjectName("centralwidget")
-    #     self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-    #     self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 791, 551))
-    #     self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-    #     self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-    #     self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-    #     self.verticalLayout.setObjectName("verticalLayout")
-    #     self.pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
-    #     self.pushButton.setObjectName("pushButton")
-    #     self.verticalLayout.addWidget(self.pushButton)
-    #     self.pushButton_2 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-    #     self.pushButton_2.setObjectName("pushButton_2")
-    #     self.verticalLayout.addWidget(self.pushButton_2)
-    #     QMainWindow.setCentralWidget(self.centralwidget)
-    #     self.menubar = QtWidgets.QMenuBar(QMainWindow)
-    #     self.menubar.setGeometry(QtCore.QRect(0, 0, 840, 21))
-    #     self.menubar.setObjectName("menubar")
-    #     QMainWindow.setMenuBar(self.menubar)
-    #     self.statusbar = QtWidgets.QStatusBar(QMainWindow)
-    #     self.statusbar.setObjectName("statusbar")
-    #     QMainWindow.setStatusBar(self.statusbar)
-    #
-    #     self.retranslateUi(QMainWindow)
-    #     QtCore.QMetaObject.connectSlotsByName(QMainWindow)
-    #
-    # def retranslateUi(self, MainWindow):
-    #     _translate = QtCore.QCoreApplication.translate
-    #     MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-    #     self.pushButton.setText(_translate("MainWindow", "Play"))
-    #     self.pushButton_2.setText(_translate("MainWindow", "Pause"))
-    #     self.pushButton.clicked.connect(self.play)
-    #     self.pushButton_2.clicked.connect(self.pause)
-    #     self.url = QtCore.QUrl.fromLocalFile("C:/Users/q/Desktop/Week4/Program/twinkle_twinkle_melodyRNN.mp3")
-    #     self.content = QtMultimedia.QMediaContent(self.url)
-    #     self.player = QtMultimedia.QMediaPlayer()
-    #     self.player.setMedia(self.content)
-    #
-    # def play(self):
-    #     self.player.play()
-    #
-    # def pause(self):
-    #     self.player.pause()
-
-def start1():
     ui = start_1.StartDialog()
     Dialog = QDialog()
     ui.setupUi(Dialog)
     Dialog.show()
-
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-
-    start1()
-
     sys.exit(app.exec_())
