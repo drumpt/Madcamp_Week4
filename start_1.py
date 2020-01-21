@@ -37,10 +37,10 @@ class StartDialog():
         Dialog.setWindowTitle("다재다냥★♬")
 
         self.start_btn = QPushButton(Dialog)
-        self.start_btn.setGeometry(240, 85, 180, 180)
+        self.start_btn.setGeometry(220, 65, 200, 200)
         start_icon = QtGui.QIcon('./tab1_photo/git.png')
         self.start_btn.setIcon(start_icon)
-        self.start_btn.setIconSize(QtCore.QSize(180, 180))
+        self.start_btn.setIconSize(QtCore.QSize(200, 200))
         self.start_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
 
         self.start_btn.clicked.connect(lambda: self.second(Dialog))
@@ -48,11 +48,11 @@ class StartDialog():
         # 로고
         self.logo_img = QPixmap()
         self.logo_img.load("./tab1_photo/logo_1.png")
-        self.logo_img = self.logo_img.scaled(QSize(500, 130))
+        self.logo_img = self.logo_img.scaled(QSize(318, 104))
         self.logo_label = QLabel(Dialog)
         self.logo_label.setPixmap(self.logo_img)
         self.logo_label.show()
-        self.logo_label.setGeometry(85, 280, 500, 130)
+        self.logo_label.setGeometry(161, 280, 318, 104)
 
     def second(self, Dialog):
         # 냥이 선택 창
@@ -93,21 +93,15 @@ class StartDialog():
         # 시작 버튼
         self.select_btn = QPushButton(Dialog)
         self.select_btn.setGeometry(QtCore.QRect(500, 440, 60, 30))
-        # select_icon = QtGui.QIcon('next.png')
-        # self.select_btn.setIcon(select_icon)
-        # self.select_btn.setIconSize(QtCore.QSize(80, 80))
-        # self.select_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.select_btn.setText("시작")
+        self.select_btn.setStyleSheet("font-size: 16px;")
         self.select_btn.show()
 
         # 종료 버튼
         self.exit_btn = QPushButton(Dialog)
         self.exit_btn.setGeometry(QtCore.QRect(570, 440, 60, 30))
-        # exit_icon = QtGui.QIcon('next.png')
-        # self.exit_btn.setIcon(exit_icon)
-        # self.exit_btn.setIconSize(QtCore.QSize(80, 80))
-        # self.exit_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.exit_btn.setText("종료")
+        self.exit_btn.setStyleSheet("font-size: 16px;")
         self.exit_btn.show()
 
         # btn click slot
@@ -116,12 +110,6 @@ class StartDialog():
         self.exit_btn.clicked.connect(Dialog.reject)
         self.select_btn.clicked.connect(lambda: self.startMainwindow(Dialog))
 
-        # self.select_btn.clicked.connect(self.actionCustomFactors, SIGNAL("triggered()"), self.OnCustomFactorsTriggered)
-
-    # def OnCustomFactorsTriggered(self):
-    #     self.customWin = main.mainWindow()
-    #     self.customWin.show()
-    #     self.connect(self.customWin, SIGNAL("closed()"), self.OnCustomWinClosed)
 
     def startMainwindow(self, Dialog):
         Dialog.reject()
