@@ -126,6 +126,7 @@ class StartDialog():
     def startMainwindow(self, Dialog):
         Dialog.reject()
         self.__musicThread.stop()
+        self.__musicThread.stop()
         print("Hi 1")
         self.newWindow = main.mainWindow()
         print("Hi 2")

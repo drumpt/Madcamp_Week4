@@ -60,6 +60,41 @@ class SecondTab(QWidget):
 
 
 
+        # 결과 음악 실행 - ./test1.mid(이름 변경)
+        self.result_music_on = MusicPlay("./test1.mid")
+
+        # play 버튼
+        self.play_btn = QPushButton(self)
+        play_icon = QtGui.QIcon('./tab1_photo/play.png')
+        self.play_btn.setIcon(play_icon)
+        self.play_btn.setIconSize(QSize(50, 50))
+        self.play_btn.setGeometry(90, 340, 50, 50)
+        self.play_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.play_btn.clicked.connect(lambda: self.result_music_play())  # 재생
+        self.play_btn.hide()
+
+
+        # pause 버튼
+        self.pause_btn = QPushButton(self)
+        pause_icon = QtGui.QIcon('./tab1_photo/pause.png')
+        self.pause_btn.setIcon(pause_icon)
+        self.pause_btn.setIconSize(QSize(50, 50))
+        self.pause_btn.setGeometry(145, 340, 50, 50)
+        self.pause_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.pause_btn.clicked.connect(lambda: self.result_music_pause())  # 재생
+        self.pause_btn.hide()
+
+
+        # music wave gif
+        self.movie = QMovie('./tab1_photo/wave.gif')
+        self.movie.setScaledSize(QSize(330, 80))
+        self.music_label = QLabel(self)
+        self.music_label.setMovie(self.movie)
+        self.music_label.setGeometry(210, 325, 330, 80)
+        self.movie = self.movie
+        self.movie.start()
+        self.movie.loopCount()
+        self.music_label.hide()
 
 
 
@@ -76,7 +111,7 @@ class SecondTab(QWidget):
         self.movie = self.jyp_movie
         self.jyp_movie.start()
         self.jyp_movie.loopCount()
-        # self.jyp_label.show()
+        # self.jyp_label.hide()
 
         self.ing_box = QLabel(self)
         self.ing_box.setText("편곡중입니다. 잠시만 기다려 주세요~~")
@@ -84,23 +119,19 @@ class SecondTab(QWidget):
         self.ing_box.setStyleSheet("Color: rgb(153,51,0); background-color: rgba(255,255,255,0)")
         self.ing_box.setGeometry(200, 410, 250, 20)
         self.ing_box.setAlignment(QtCore.Qt.AlignHCenter)
-        # self.ing_box.show()
-
+        # self.ing_box.hide()
 
         self.wait_voice = MusicPlay("./tab2_photo/arrangement.mp3")
         self.wait_voice.play()
 
-        # th_wait = Thread(target=self.if_upload)
-        # th_wait.start()
-
-        # self.if_upload()
-        # self.music_result()
+        th_wait = Thread(target=self.if_upload)
+        th_wait.start()
 
 
 
 
     def if_upload(self):
-        max_time_end = time.time() + 2
+        max_time_end = time.time() + 8
         while True:
             self.jyp_label.show()
             self.ing_box.show()
@@ -109,47 +140,24 @@ class SecondTab(QWidget):
                 self.ing_box.hide()
                 self.wait_voice.stop()
                 break
-        self.music_result()
 
-
-
-
-    def music_result(self):
-
-        # play 버튼
-        self.play_btn = QPushButton(self)
-        play_icon = QtGui.QIcon('./tab1_photo/play.png')
-        self.play_btn.setIcon(play_icon)
-        self.play_btn.setIconSize(QSize(50, 50))
-        self.play_btn.setGeometry(125, 340, 50, 50)
-        self.play_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
-        # self.play_btn.clicked.connect(self.music_on.play())  # 재생
         self.play_btn.show()
-
-        # music wave gif
-        movie = QMovie('./tab1_photo/wave.gif')
-        movie.setScaledSize(QSize(330, 80))
-        music_label = QLabel(self)
-        music_label.setMovie(movie)
-        music_label.show()
-        music_label.setGeometry(190, 325, 330, 80)
-        self.movie = movie
-        movie.start()
-        movie.loopCount()
-
-        # 결과 음악 실행 - ./test1.mid(이름 변경)
-        self.music_on = MusicPlay("./test1.mid")
-        self.music_on.play()
+        self.pause_btn.show()
+        self.music_label.show()
 
 
+
+    def result_music_play(self):
+        self.result_music_on.play()
+
+    def result_music_pause(self):
+        self.result_music_on.stop()
 
 
 class MusicPlay():
     def __init__(self, music_file):
         # super(MusicPlay, self).__init__(parent)
-
         self.music_file = music_file
-
 
     def play(self):
 

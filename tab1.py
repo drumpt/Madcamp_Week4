@@ -97,7 +97,7 @@ class FirstTab(QWidget):
         print(self.cnt)
 
         nextButton = QPushButton(self)
-        nextButton.setIcon(QtGui.QIcon('./tab1_photo/tab1_next.png'))
+        nextButton.setIcon(QtGui.QIcon('./tab1_photo/tab1_next.jpg'))
         nextButton.setIconSize(QSize(60, 60))
         nextButton.setGeometry(QRect(530, 20, 60, 60))
         nextButton.clicked.connect(self.tab1_next)
