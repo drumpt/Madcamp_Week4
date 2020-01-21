@@ -1,5 +1,4 @@
 # import main
-import time
 
 import pygame
 from PyQt5 import QtGui
@@ -16,14 +15,14 @@ class SecondTab(QWidget):
     def init_window(self):
         self.setWindowTitle('다재다냥')
         self.setGeometry(600, 300, 640, 480)
-        self.setStyleSheet("QWidget {background-color: white; background-image: url(./tab1_photo/bgi.jpg); font-family:'배달의민족 주아'; src:'BMJUA_ttf.ttf'}")
+        self.setStyleSheet(
+            "QWidget {background-color: white; background-image: url(./tab1_photo/bgi.jpg); font-family:'배달의민족 주아'; src:'BMJUA_ttf.ttf'}")
         self.show()
 
     def setupUi(self):
         self.setGeometry(600, 300, 640, 480)
-
-        self.setStyleSheet(" {background-image: url(./tab1_photo/bgi.jpg); font-family:'배달의민족 주아'; src:'BMJUA_ttf.ttf'}")
-
+        self.setStyleSheet(
+            " {background-image: url(./tab1_photo/bgi.jpg); font-family:'배달의민족 주아'; src:'BMJUA_ttf.ttf'}")
 
         # 춤추는 냥이
         movie = QMovie('./tab2_photo/Cat_Dance4.gif')
@@ -43,7 +42,6 @@ class SecondTab(QWidget):
         self.initBox.setGeometry(290, 45, 250, 120)
         self.initBox.show()
 
-
         self.upload_btn = QPushButton(self)
         upload_icon = QtGui.QIcon('./tab2_photo/download_icon.png')
         self.upload_btn.setIcon(upload_icon)
@@ -53,15 +51,9 @@ class SecondTab(QWidget):
         self.upload_btn.show()
         self.upload_btn.clicked.connect(lambda: self.play_btn_clicked())
 
-
-
-
-
-
     def play_btn_clicked(self):
         self.fname = QFileDialog.getOpenFileName(self)[0]
         print(self.fname)
-
 
         # 작곡중~
         self.jyp_movie = QMovie('./tab2_photo/jyp.gif')
@@ -74,21 +66,15 @@ class SecondTab(QWidget):
         self.jyp_movie.loopCount()
         self.jyp_label.show()
 
-
         # 편곡 로직
         # time.sleep(10)
 
         # 작곡중~ hide
         # self.jyp_label.hide()
 
-
-
-
-
         # 결과 음악 실행 - ./test1.mid(이름 변경)
         self.music_on = MusicPlay()
         self.music_on.play()
-
 
         # play 버튼
         self.play_btn = QPushButton(self)
@@ -110,7 +96,6 @@ class SecondTab(QWidget):
         self.movie = movie
         movie.start()
         movie.loopCount()
-
 
 
 class MusicPlay():
