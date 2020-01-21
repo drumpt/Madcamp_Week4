@@ -17,6 +17,7 @@ eye_cascade = cv2.CascadeClassifier("C:/Users/q/Downloads/haarcascade_eye_tree_e
 model = load_model("C:/Users/q/Downloads/another_model_2_10.h5", compile=False)
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
+ITERATION = 5
 
 def most_frequent(List):
     counter = 0
@@ -44,7 +45,7 @@ class FirstTab(QWidget):
         elif self.cnt == 3:
             self.add_response_box()
         elif self.cnt == 4:
-            self.add_answer_box()
+            self.restart()
             print(self.cnt + "하하.")
 
     def getPixmap(self, dir):
@@ -110,11 +111,15 @@ class FirstTab(QWidget):
         # self.restartButton = restartButton
         # restartButton.show()
 
+        print("여기까지 됩니다ㅎㅎ")
+
         catLabel = QLabel(self)
         catLabel.setPixmap(self.getPixmap(self.img_path))
         catLabel.setGeometry(20, 20, 56, 56)
         self.catLabel1 = catLabel
         catLabel.show()
+
+        print("여기까지 됩니다ㅎㅎ")
 
         initBox = QTextEdit(self)
         initBox.setText("안녕하세요. 오늘 하루는 어떠셨나요? 당신의 기분이 궁금해요!")
@@ -148,8 +153,16 @@ class FirstTab(QWidget):
         self.nextButton = nextButton
         nextButton.show()
 
+        print("여기까지 됩니다!")
+
         self.initVoice = VoicePlay("")
+        # print('Hello, world! 1')
         self.initVoice.play()
+        # print('Hello, world! 2')
+        # self.initVoice.play()
+        # print('Hello, world! 3')
+        print("여기까지 됩니다~~~")
+
 
     def add_answer_box(self):
         class_to_emotion = {0: 'angry', 1: 'happy', 2: 'neutral', 3: 'sad', 4: 'surprise'}
@@ -183,7 +196,7 @@ class FirstTab(QWidget):
                 if len(eyes) == 0:
                     emotions.append("sleepy")
                     cnt += 1
-                    if cnt == 1:
+                    if cnt == ITERATION - 2:
                         self.face = frame[y:y + h, x: x + w]
                 else:
                     resized_face = cv2.cvtColor(cv2.cvtColor(frame[y:y + h, x:x + w], cv2.COLOR_BGR2GRAY),
@@ -193,7 +206,7 @@ class FirstTab(QWidget):
                     if emotion in ["happy", "sad", "angry"]:
                         emotions.append(emotion)
                         cnt += 1
-                        if cnt == 1:
+                        if cnt == ITERATION - 2:
                             self.face = frame[y:y + h, x: x + w]
                 print(cnt)
                 # cv2.putText(frame, emotion, (x, y - 15), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
@@ -204,7 +217,7 @@ class FirstTab(QWidget):
             cv2.imshow('Face_to_emotion', frame)
             cv2.waitKey(1)
 
-            if cnt >= 3 or cv2.waitKey(1) & 0xFF == ord('q'):
+            if cnt >= ITERATION or cv2.waitKey(1) & 0xFF == ord('q'):
                 cam.release()
                 cv2.destroyAllWindows()
                 break
@@ -295,6 +308,7 @@ class FirstTab(QWidget):
             music_label.show()
             music_label.setGeometry(150, 250, 150, 60)
             self.movie = movie
+            self.movieLabel = music_label
             movie.start()
             movie.loopCount()
         except Exception as e:
@@ -317,12 +331,8 @@ class FirstTab(QWidget):
     def music_play(self, part):
         if part == "play":
             self.musicThread.play()
-            # self.play_btn.hide()
-            # self.stop_btn.show()
         else:  # part == "pause"
             self.musicTread.stop()
-            # self.stop_btn.hide()
-            # self.play_btn.show()
 
     def add_response_box(self):
         self.suggestionVoice.stop()
@@ -356,6 +366,8 @@ class FirstTab(QWidget):
         self.cnt = 4
 
     def okay(self):
+        self.suggestionVoice.stop()
+
         self.responseBox.hide()
         self.okayButton.hide()
         self.refreshButton.hide()
@@ -377,7 +389,8 @@ class FirstTab(QWidget):
         self.catLabel2.hide()
         self.suggestionBox.hide()
         self.play_btn.hide()
-        self.movie.deleteLater() # 안 될수도 있음
+        self.movieLabel.hide()
+        # self.movie.deleteLater()
         self.musicThread.stop()
         self.faceLabel2.hide()
         self.responseBox.hide()
@@ -385,27 +398,40 @@ class FirstTab(QWidget):
         self.refreshButton.hide()
         self.add_suggestion_box()
 
-        # 여기 살짝 추가해야 함.
-        # self.add_response_box()
 
     def restart(self):
         self.cnt = 1
 
         self.initVoice.stop()
         self.suggestionVoice.stop()
+        self.musicThread.stop()
+        # pygame.mixer.music.stop()
+
+        self.catLabel1.hide()
+        self.initBox.hide()
+
+        print("Hello 1")
 
         self.faceLabel1.hide()
         self.answerBox.hide()
+
+        print("Hello 2")
+
         self.catLabel2.hide()
         self.suggestionBox.hide()
         self.play_btn.hide()
-        self.movie.deleteLater()
-        self.musicThread.stop()
+        self.movieLabel.hide()
+        # self.movie.deleteLater()
+        print("Hello 3")
+
         self.faceLabel2.hide()
         self.responseBox.hide()
         self.okayButton.hide()
         self.refreshButton.hide()
-        self.add_answer_box()
+
+        print("Hello 4")
+
+        self.add_init_box(self.img_path)
 
 class MusicPlay():
     def __init__(self, emotion):
@@ -417,8 +443,9 @@ class MusicPlay():
         music_name = music_list.pop(random.randrange(len(music_list)))
         music_file = path + music_name
 
-        print(2)
+        self.music_file = music_file
 
+    def play(self):
         freq = 44100  # audio CD quality
         bitsize = -16  # unsigned 16 bit
         channels = 2  # 1 is mono, 2 is stereo
@@ -429,15 +456,19 @@ class MusicPlay():
 
         try:
             print(3)
-            self.player.music.load(music_file)
-            print(" %s 로드" % music_file)
+            self.player.music.load(self.music_file)
+            print(" %s 로드" % self.music_file)
         except pygame.error:
-            print(" %s 에러 (%s)" % (music_file, pygame.get_error()))
+            print(" %s 에러 (%s)" % (self.music_file, pygame.get_error()))
 
-    def play(self):
+        # # self.player.find_channel(True).play(self.music_file)
+        # self.player.Sound(self.music_file).play(1)
+        # # self.player.Channel(0).play(self.music_file, 1)
         self.player.music.play(1)
 
     def stop(self):
+        # self.player.Sound(self.music_file).stop()
+        # self.player.Channel(0).stop()
         self.player.music.stop()
 
 class VoicePlay():
@@ -451,24 +482,28 @@ class VoicePlay():
             music_name = "suggestion_" + emotion + ".mp3"
             music_file = path + music_name
 
+        self.music_file = music_file
+
+    def play(self):
         freq = 44100  # audio CD quality
         bitsize = -16  # unsigned 16 bit
         channels = 2  # 1 is mono, 2 is stereo
         buffer = 1024  # number of samples
-
-        self.player = pygame.mixer
-        self.player.init(freq, bitsize, channels, buffer)
-        self.player.music.set_volume(1)
+        pygame.mixer.init(freq, bitsize, channels, buffer)
+        pygame.mixer.music.set_volume(1)
 
         try:
-            print(3)
-            self.player.music.load(music_file)
-            print(" %s 로드" % music_file)
+            pygame.mixer.music.load(self.music_file)
+            print(" %s 로드" % self.music_file)
         except pygame.error:
-            print(" %s 에러 (%s)" % (music_file, pygame.get_error()))
-
-    def play(self):
-        self.player.music.play(1)
+            print(" %s 에러 (%s)" % (self.music_file, pygame.get_error()))
+        # self.player.Sound(self.music_file).play(1)
+        # self.player.find_channel(True).play(self.music_file)
+        # self.player.Channel(1).play(self.music_file, 1)
+        # self.player.music.play(1)
+        pygame.mixer.music.play(1)
 
     def stop(self):
-        self.player.music.stop()
+        # self.player.Channel(1).stop()
+        # self.player.Sound(self.music_file).stop()
+        pygame.mixer.music.stop()

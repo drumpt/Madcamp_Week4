@@ -1,9 +1,8 @@
 import os
-import time
 
 import pygame
 from PyQt5 import QtCore, QtGui
-from PyQt5.QtCore import QThread, QSize
+from PyQt5.QtCore import QSize
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import *
 
@@ -13,7 +12,6 @@ import main
 class StartDialog():
     def __init(self):
         super().__init()
-
 
     @property
     def cat_index(self):
@@ -33,8 +31,6 @@ class StartDialog():
         Dialog.setStyleSheet("background-image: url(./tab1_photo/bgi.jpg); font-family:'배달의민족 주아'; src:'BMJUA_ttf.ttf'")
         Dialog.setWindowTitle("다재다냥★♬")
 
-
-
         self.start_btn = QPushButton(Dialog)
         self.start_btn.setGeometry(250, 100, 150, 150)
         start_icon = QtGui.QIcon('./tab1_photo/git.png')
@@ -43,8 +39,6 @@ class StartDialog():
         self.start_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
 
         self.start_btn.clicked.connect(lambda: self.second(Dialog))
-
-
 
         # 로고
         self.logo_img = QPixmap()
@@ -55,19 +49,13 @@ class StartDialog():
         self.logo_label.show()
         self.logo_label.setGeometry(85, 280, 500, 130)
 
-
-
-
-
-
-    def second(self,Dialog):
+    def second(self, Dialog):
         # 냥이 선택 창
         print("클릭됨")
         self.select_cat("next", Dialog)
 
         self.logo_label.hide()
         self.start_btn.hide()
-
 
         self.title = QLabel(Dialog)
         _translate = QtCore.QCoreApplication.translate
@@ -147,6 +135,8 @@ class StartDialog():
     #     self.connect(self.customWin, SIGNAL("closed()"), self.OnCustomWinClosed)
 
     def startMainwindow(self, Dialog):
+        Dialog.reject()
+        self.__musicThread.stop()
         print("Hi 1")
         self.newWindow = main.mainWindow()
         print("Hi 2")
@@ -154,8 +144,6 @@ class StartDialog():
         print("Hi 3")
         self.newWindow.tab1.add_init_box(self.img_path)
         self.newWindow.tab2.setupUi()
-        Dialog.reject()
-        self.__musicThread.stop()
         # self = main.mainWindow()
         # self.init_window()
         # self.newWindow.tab1.add_init_box(self.img_path)
@@ -208,14 +196,14 @@ class StartDialog():
         self.cat_txtname.show()
 
 
-
-
-
 class MusicPlay():
     def __init__(self):
         # super(MusicPlay, self).__init__(parent)
         music_file = "./test1.mid"
+        self.music_file = music_file
 
+    def play(self):
+        # pygame.mixer.Sound(self.music_file)
         freq = 44100  # audio CD quality
         bitsize = -16  # unsigned 16 bit
         channels = 2  # 1 is mono, 2 is stereo
@@ -223,27 +211,12 @@ class MusicPlay():
         pygame.mixer.init(freq, bitsize, channels, buffer)
         pygame.mixer.music.set_volume(1)
 
-        clock = pygame.time.Clock()
         try:
-            pygame.mixer.music.load(music_file)
-            print(" %s 로드" % music_file)
+            pygame.mixer.music.load(self.music_file)
+            print(" %s 로드" % self.music_file)
         except pygame.error:
-            print(" %s 에러 (%s)" % (music_file, pygame.get_error()))
-
-    def play(self):
+            print(" %s 에러 (%s)" % (self.music_file, pygame.get_error()))
         pygame.mixer.music.play(-1)
 
     def stop(self):
         pygame.mixer.music.stop()
-
-# if __name__ == "__main__":
-#     import sys
-#     app = QApplication(sys.argv)
-#
-#     ui = StartDialog()
-#     Dialog = QDialog()
-#     ui.setupUi(Dialog)
-#     Dialog.show()
-#
-#     sys.exit(app.exec_())
-
