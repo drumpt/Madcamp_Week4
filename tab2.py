@@ -1,4 +1,5 @@
 # import main
+import os
 from threading import Thread
 
 import time
@@ -9,8 +10,6 @@ from PyQt5.QtCore import *
 # from PyQt5 import QtM
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-
-
 
 
 
@@ -36,7 +35,7 @@ class SecondTab(QWidget):
         music_label = QLabel(self)
         music_label.setMovie(movie)
         music_label.show()
-        music_label.setGeometry(80, 20, 170, 200)
+        music_label.setGeometry(80, 30, 170, 200)
         self.movie = movie
         movie.start()
         movie.loopCount()
@@ -45,7 +44,7 @@ class SecondTab(QWidget):
         self.initBox.setText("당신의 음악을 편곡해드릴게요!<br><br>원하는 노래를 선택해주세요")
         self.initBox.setFont(QtGui.QFont('배달의민족 주아', 15))
         self.initBox.setStyleSheet("Color: rgb(59,59,59); background-color: rgba(255,255,255,0)")
-        self.initBox.setGeometry(300, 10, 250, 120)
+        self.initBox.setGeometry(300, 20, 250, 120)
         self.initBox.show()
 
 
@@ -53,22 +52,18 @@ class SecondTab(QWidget):
         upload_icon = QtGui.QIcon('./tab2_photo/download_icon.png')
         self.upload_btn.setIcon(upload_icon)
         self.upload_btn.setIconSize(QSize(210, 210))
-        self.upload_btn.setGeometry(300, 85, 210, 210)
+        self.upload_btn.setGeometry(300, 90, 210, 210)
         self.upload_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.upload_btn.show()
         self.upload_btn.clicked.connect(lambda: self.upload_btn_clicked())
 
-
-
-        # 결과 음악 실행 - ./test1.mid(이름 변경)
-        self.result_music_on = MusicPlay("./test1.mid")
 
         # play 버튼
         self.play_btn = QPushButton(self)
         play_icon = QtGui.QIcon('./tab1_photo/play.png')
         self.play_btn.setIcon(play_icon)
         self.play_btn.setIconSize(QSize(50, 50))
-        self.play_btn.setGeometry(90, 340, 50, 50)
+        self.play_btn.setGeometry(90, 335, 50, 50)
         self.play_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.play_btn.clicked.connect(lambda: self.result_music_play())  # 재생
         self.play_btn.hide()
@@ -79,7 +74,7 @@ class SecondTab(QWidget):
         pause_icon = QtGui.QIcon('./tab1_photo/pause.png')
         self.pause_btn.setIcon(pause_icon)
         self.pause_btn.setIconSize(QSize(50, 50))
-        self.pause_btn.setGeometry(145, 340, 50, 50)
+        self.pause_btn.setGeometry(148, 335, 50, 50)
         self.pause_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.pause_btn.clicked.connect(lambda: self.result_music_pause())  # 재생
         self.pause_btn.hide()
@@ -90,7 +85,7 @@ class SecondTab(QWidget):
         self.movie.setScaledSize(QSize(330, 80))
         self.music_label = QLabel(self)
         self.music_label.setMovie(self.movie)
-        self.music_label.setGeometry(210, 325, 330, 80)
+        self.music_label.setGeometry(210, 315, 330, 80)
         self.movie = self.movie
         self.movie.start()
         self.movie.loopCount()
@@ -99,8 +94,27 @@ class SecondTab(QWidget):
 
 
     def upload_btn_clicked(self):
-        self.fname = QFileDialog.getOpenFileName(self)[0]
-        print(self.fname)
+
+        path = QFileDialog.getOpenFileName(self)[0]
+        split_path = path.split('/')
+        fname = split_path[len(split_path) - 1]
+        print("input 파일 : ", fname)
+
+
+        if fname == "prelude_in_c_major.mid":
+            self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2도미솔도.mp3")
+        elif fname == "mary_had_a_little_lamb.mid":
+            self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2비행기.mp3")
+        elif fname == "fur_elise.mid":
+            self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2비행기.mp3")
+        elif fname == "twinkle_twinkle.mid":
+            self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2작은별")
+        else:
+            self.result_music_on = MusicPlay("./test1.mid")
+
+
+
+
 
         # jyp 작곡중
         self.jyp_movie = QMovie('./tab2_photo/jyp.gif')
@@ -131,7 +145,7 @@ class SecondTab(QWidget):
 
 
     def if_upload(self):
-        max_time_end = time.time() + 8
+        max_time_end = time.time() + 7
         while True:
             self.jyp_label.show()
             self.ing_box.show()

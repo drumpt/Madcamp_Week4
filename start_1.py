@@ -187,7 +187,7 @@ class StartDialog():
 class MusicPlay():
     def __init__(self):
         # super(MusicPlay, self).__init__(parent)
-        music_file = "./test1.mid"
+        music_file = "./main_bgm.mp3"
         self.music_file = music_file
 
     def play(self):

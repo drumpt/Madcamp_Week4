@@ -17,7 +17,7 @@ class mainWindow(QWidget):
     def init_window(self):
         self.setWindowTitle('다재다냥★♬')
         self.setGeometry(600, 300, 640, 480)
-        self.setStyleSheet("QWidget {background-color: white;}")
+        self.setStyleSheet("QWidget {background-color: white; }")
 
         self.tab1 = tab1.FirstTab()
         self.tab2 = tab2.SecondTab()
