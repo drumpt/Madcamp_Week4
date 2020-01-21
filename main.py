@@ -30,7 +30,7 @@ class mainWindow(QWidget):
         tabwidget.addTab(self.tab1, "노래 추천")
         tabwidget.addTab(self.tab2, "편곡")
         tabwidget.addTab(self.tab3, "그림")
-        tabwidget.addTab(self.tab4, "?")
+        tabwidget.addTab(self.tab4, "짠")
         # tabwidget.setStyleSheet("QTabBar::tab { height: 30px;   background-image: url(./tab1_photo/bgi.jpg);}")
 
         vbox = QVBoxLayout()
