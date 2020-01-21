@@ -125,6 +125,7 @@ class StartDialog():
 
     def startMainwindow(self, Dialog):
         Dialog.reject()
+        self.__musicThread.stop()
         print("Hi 1")
         self.newWindow = main.mainWindow()
         print("Hi 2")
@@ -132,7 +133,6 @@ class StartDialog():
         print("Hi 3")
         self.newWindow.tab1.add_init_box(self.img_path)
         self.newWindow.tab2.setupUi()
-        self.__musicThread.stop()
 
     # 냥이 사진 select
     def select_cat(self, part, Dialog):
