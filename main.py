@@ -31,7 +31,15 @@ class mainWindow(QWidget):
         tabwidget.addTab(self.tab2, "편곡")
         tabwidget.addTab(self.tab3, "그림")
         tabwidget.addTab(self.tab4, "짠")
-        # tabwidget.setStyleSheet("QTabBar::tab { height: 30px;   background-image: url(./tab1_photo/bgi.jpg);}")
+        # tabwidget.setStyleSheet(
+        #     "QTabBar::tab {width: 100px; height: 30px; border: 1px solid white; background-image: url(./tab1_photo/bgi.jpg); font-family: '배달의민족 주아'; font-size: 18px} \
+        #     QTabBar::tab:selected{border: 1px solid white; background: rgb(255, 202, 62); font-family: '배달의민족 주아'; font-size: 18px;}"
+        # )
+
+        tabwidget.setStyleSheet(
+            "QTabBar::tab {width: 100px; height: 30px; border: 1px solid lightgray; background: lightgray; font-family: '배달의민족 주아'; font-size: 18px} \
+            QTabBar::tab:selected {border: 1px solid lightgray; background: white; font-family: '배달의민족 주아'; font-size: 18px; margin-bottom: -10px}"
+        )
 
         vbox = QVBoxLayout()
         vbox.addWidget(tabwidget)

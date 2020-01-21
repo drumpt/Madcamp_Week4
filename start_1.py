@@ -94,14 +94,14 @@ class StartDialog():
         self.select_btn = QPushButton(Dialog)
         self.select_btn.setGeometry(QtCore.QRect(500, 440, 60, 30))
         self.select_btn.setText("시작")
-        self.select_btn.setStyleSheet("font-size: 16px;")
+        self.select_btn.setStyleSheet("font-size: 18px;")
         self.select_btn.show()
 
         # 종료 버튼
         self.exit_btn = QPushButton(Dialog)
         self.exit_btn.setGeometry(QtCore.QRect(570, 440, 60, 30))
         self.exit_btn.setText("종료")
-        self.exit_btn.setStyleSheet("font-size: 16px;")
+        self.exit_btn.setStyleSheet("font-size: 18px;")
         self.exit_btn.show()
 
         # btn click slot
