@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7af2d002-ae1e-4a2a-80ea-5384cb295e52" name="Default Changelist" comment="magenta add" />
+    <list default="true" id="7af2d002-ae1e-4a2a-80ea-5384cb295e52" name="Default Changelist" comment="magenta add">
+      <change beforePath="$PROJECT_DIR$/.idea/Program.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Program.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,13 +99,21 @@
       <option name="project" value="LOCAL" />
       <updated>1579498851149</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="my magenta import update">
+      <created>1579558904071</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579558904071</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Tab1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tab1" />
+    <MESSAGE value="my magenta import update" />
+    <option name="LAST_COMMIT_MESSAGE" value="my magenta import update" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2472" y="179" key="#Inspections" timestamp="1579521415897">
@@ -117,15 +129,17 @@
     </state>
     <state x="725" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579278745797" />
     <state x="2645" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579523845783" />
-    <state x="609" y="114" key="CommitChangelistDialog2" timestamp="1579498859020">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2529" y="114" key="CommitChangelistDialog2" timestamp="1579558903552">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="609" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579498859020" />
-    <state x="2539" y="220" key="FileChooserDialogImpl" timestamp="1579522494332">
+    <state x="2529" y="114" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579558903552" />
+    <state x="2539" y="220" key="FileChooserDialogImpl" timestamp="1579557797040">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="619" y="220" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579361664139" />
     <state x="2539" y="220" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579522494332" />
+    <state x="2539" y="220" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579557797040" />
     <state width="949" height="205" key="GridCell.Tab.0.bottom" timestamp="1579531358859">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -166,11 +180,12 @@
     </state>
     <state width="949" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579498867022" />
     <state width="949" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579521496232" />
-    <state x="2751" y="161" width="998" height="708" key="SettingsEditor" timestamp="1579522800171">
+    <state x="2543" y="161" width="1206" height="779" key="SettingsEditor" timestamp="1579558337800">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="831" y="161" width="998" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1579426252564" />
     <state x="2751" y="161" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1579522800171" />
+    <state x="2543" y="161" width="1206" height="779" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1579558337800" />
     <state x="2572" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1579521557918">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
