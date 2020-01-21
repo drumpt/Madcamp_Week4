@@ -60,7 +60,8 @@ class SecondTab(QWidget):
         self.play_btn.setIconSize(QSize(50, 50))
         self.play_btn.setGeometry(90, 335, 50, 50)
         self.play_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
-        self.play_btn.clicked.connect(lambda: self.result_music_play())  # 재생
+        # self.play_btn.clicked.connect(lambda: self.result_music_play())  # 재생
+        self.play_btn.clicked.connect(lambda: self.result_music_on.play())  # 재생
         self.play_btn.hide()
 
         # pause 버튼
@@ -70,7 +71,8 @@ class SecondTab(QWidget):
         self.pause_btn.setIconSize(QSize(50, 50))
         self.pause_btn.setGeometry(148, 335, 50, 50)
         self.pause_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
-        self.pause_btn.clicked.connect(lambda: self.result_music_pause())  # 재생
+        # self.pause_btn.clicked.connect(lambda: self.result_music_pause())  # 재생
+        self.pause_btn.clicked.connect(lambda: self.result_music_on.stop())  # 재생
         self.pause_btn.hide()
 
         # music wave gif
@@ -100,9 +102,9 @@ class SecondTab(QWidget):
         elif fname == "mary_had_a_little_lamb.mid":
             self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2비행기.mp3")
         elif fname == "fur_elise.mid":
-            self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2비행기.mp3")
+            self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2엘리제.mp3")
         elif fname == "twinkle_twinkle.mid":
-            self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2작은별")
+            self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2작은별.mp3")
         else:
             self.result_music_on = MusicPlay("./test1.mid")
 
@@ -118,7 +120,7 @@ class SecondTab(QWidget):
         # self.jyp_label.hide()
 
         self.ing_box = QLabel(self)
-        self.ing_box.setText("편곡중입니다. 잠시만 기다려 주세요~~")
+        self.ing_box.setText("편곡중입니다. 잠시만 기다려주세요~~")
         self.ing_box.setFont(QtGui.QFont('배달의민족 주아', 10))
         self.ing_box.setStyleSheet("Color: rgb(153,51,0); background-color: rgba(255,255,255,0)")
         self.ing_box.setGeometry(200, 410, 250, 20)
@@ -132,7 +134,7 @@ class SecondTab(QWidget):
         th_wait.start()
 
     def if_upload(self):
-        max_time_end = time.time() + 7
+        max_time_end = time.time() + 8
         while True:
             self.jyp_label.show()
             self.ing_box.show()
@@ -145,13 +147,6 @@ class SecondTab(QWidget):
         self.play_btn.show()
         self.pause_btn.show()
         self.music_label.show()
-
-    def result_music_play(self):
-        self.result_music_on.play()
-
-    def result_music_pause(self):
-        self.result_music_on.stop()
-
 
 class MusicPlay():
     def __init__(self, music_file):
