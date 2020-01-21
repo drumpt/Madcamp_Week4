@@ -34,20 +34,6 @@ class FirstTab(QWidget):
     def __init(self):
         super().__init__()
 
-    def tab1_next(self):
-        print(self.cnt)
-        if self.cnt == 0:
-            self.add_init_box(self.img_path)
-        elif self.cnt == 1:
-            self.add_answer_box()
-        elif self.cnt == 2:
-            self.add_suggestion_box()
-        elif self.cnt == 3:
-            self.add_response_box()
-        elif self.cnt == 4:
-            self.restart()
-            print(self.cnt + "하하.")
-
     def getPixmap(self, dir):
         if dir != "":
             image = QImage.fromData(open(dir, "rb").read(), 'jpg')
@@ -83,33 +69,6 @@ class FirstTab(QWidget):
 
     def add_init_box(self, img_path):
         self.img_path = img_path
-        # def restart():
-        #     global self
-        #     self.restartButton.hide()
-        #     self.catLabel1.hide()
-        #     self.initBox.hide()
-        #     self.faceLabel1.hide()
-        #     self.answerBox.hide()
-        #     self.catLabel2.hide()
-        #     self.suggestionBox.hide()
-        #     self.faceLabel2.hide()
-        #     self.responseBox.hide()
-        #     self.okayButton.hide()
-        #     self.refreshButton.hide()
-        #     # self.hide()
-        #     self = FirstTab()
-        #     self.add_init_box()
-        #     self.add_answer_box()
-        #     self.add_suggestion_box()
-        #     self.add_response_box()
-
-        # restartButton = QPushButton('', self)
-        # restartButton.setIcon(QIcon("./photo/restart.jpg"))
-        # restartButton.setIconSize(QSize(30, 30))
-        # restartButton.setGeometry(574, 10, 30, 30)
-        # restartButton.clicked.connect(lambda: restart())
-        # self.restartButton = restartButton
-        # restartButton.show()
 
         print("여기까지 됩니다ㅎㅎ")
 
@@ -132,16 +91,6 @@ class FirstTab(QWidget):
         initBox.show()
 
         self.cnt = 1
-
-        # initBox2 = QTextEdit(self)
-        # initBox2.setText("안녕하세요. 오늘 하루는 어떠셨나요? 당신의 기분이 궁금해요!")
-        # initBox2.setStyleSheet("QTextEdit {background-color: rgb(241, 241, 241); border-radius: 10px; padding: 10px;}")
-        # initBox2.setAlignment(Qt.AlignVCenter)
-        # initBox2.setGeometry(150, 20, 250, 56)
-        # # initBox.setGeometry(20, 20, 250, 56)
-        # initBox2.setReadOnly(True)
-        # self.initBox2 = initBox
-        # initBox2.show()
 
         print(self.cnt)
 
@@ -253,10 +202,7 @@ class FirstTab(QWidget):
 
         self.cnt = 2
 
-        # time.sleep(1)
-        # self.add_suggestion_box()
-
-    def add_suggestion_box(self):  # 캐릭터 이름을 input으로 받을 수 있게 만들어야 함.
+    def add_suggestion_box(self):
         emotion_to_word2 = {"happy": "기쁠", "sad": "슬플", "angry": "화날", "sleepy": "졸릴"}
 
         print("HI!!!!!!!!!!!!!!!")
@@ -384,54 +330,137 @@ class FirstTab(QWidget):
 
     def refresh(self):
         self.cnt = 2
+
+        print("0")
+
         self.suggestionVoice.stop()
 
-        self.catLabel2.hide()
-        self.suggestionBox.hide()
-        self.play_btn.hide()
-        self.movieLabel.hide()
-        # self.movie.deleteLater()
-        self.musicThread.stop()
-        self.faceLabel2.hide()
-        self.responseBox.hide()
-        self.okayButton.hide()
-        self.refreshButton.hide()
-        self.add_suggestion_box()
+        print("a")
 
+        self.catLabel2.hide()
+
+        print("b")
+
+        self.suggestionBox.hide()
+
+        print("c")
+
+
+        self.play_btn.hide()
+
+        print("d")
+
+        self.movieLabel.hide()
+
+        print("e")
+
+        # self.movie.deleteLater()
+        # self.musicThread.stop()
+
+        print("f")
+
+        self.faceLabel2.hide()
+
+        print("g")
+
+        self.responseBox.hide()
+
+        print("h")
+
+        self.okayButton.hide()
+
+        print("i")
+
+        self.refreshButton.hide()
+        print("j")
+
+        # self.refreshButton.close()
+
+        # print("k")
+        # self.add_suggestion_box()
 
     def restart(self):
-        self.cnt = 1
-
-        self.initVoice.stop()
-        self.suggestionVoice.stop()
-        self.musicThread.stop()
+        print("0")
+        #
+        # # self.initVoice.stop()
+        # # self.suggestionVoice.stop()
+        # # self.musicThread.stop()
         # pygame.mixer.music.stop()
 
+        print("1")
+
         self.catLabel1.hide()
+
+        print("2")
+
         self.initBox.hide()
 
-        print("Hello 1")
+        print("3")
 
         self.faceLabel1.hide()
+
+        print("4")
+
         self.answerBox.hide()
 
-        print("Hello 2")
+        print("5")
 
         self.catLabel2.hide()
+
+        print("6")
+
         self.suggestionBox.hide()
+
+
+        print("7")
+
         self.play_btn.hide()
+
+        print("8")
+
         self.movieLabel.hide()
         # self.movie.deleteLater()
-        print("Hello 3")
+        print("9")
 
         self.faceLabel2.hide()
+
+        print("10")
+
         self.responseBox.hide()
+
+        print("11")
+
         self.okayButton.hide()
+
+        print("12")
+
         self.refreshButton.hide()
+        # self.refreshButton.deleteLater()
+        # self.refreshButton = None
+        # self.refreshButton.setParent(None)
 
-        print("Hello 4")
-
+        print("13")
+        #
+        self.cnt = 1
         self.add_init_box(self.img_path)
+
+
+    def tab1_next(self):
+        print(self.cnt)
+        if self.cnt == 0:
+            self.add_init_box(self.img_path)
+        elif self.cnt == 1:
+            self.add_answer_box()
+        elif self.cnt == 2:
+            self.add_suggestion_box()
+        elif self.cnt == 3:
+            self.add_response_box()
+        elif self.cnt == 4:
+            print("Hi!")
+            self.restart()
+            # self.refresh()
+            # print(str(self.cnt) + "하하")
+
 
 class MusicPlay():
     def __init__(self, emotion):
