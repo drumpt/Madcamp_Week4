@@ -1,12 +1,17 @@
 # import main
+from threading import Thread
+
 import time
 
 import pygame
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtCore
 from PyQt5.QtCore import *
 # from PyQt5 import QtM
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+
+
+
 
 
 class SecondTab(QWidget):
@@ -31,7 +36,7 @@ class SecondTab(QWidget):
         music_label = QLabel(self)
         music_label.setMovie(movie)
         music_label.show()
-        music_label.setGeometry(80, 55, 170, 200)
+        music_label.setGeometry(80, 20, 170, 200)
         self.movie = movie
         movie.start()
         movie.loopCount()
@@ -40,7 +45,7 @@ class SecondTab(QWidget):
         self.initBox.setText("당신의 음악을 편곡해드릴게요!<br><br>원하는 노래를 선택해주세요")
         self.initBox.setFont(QtGui.QFont('배달의민족 주아', 15))
         self.initBox.setStyleSheet("Color: rgb(59,59,59); background-color: rgba(255,255,255,0)")
-        self.initBox.setGeometry(290, 45, 250, 120)
+        self.initBox.setGeometry(300, 10, 250, 120)
         self.initBox.show()
 
 
@@ -48,47 +53,68 @@ class SecondTab(QWidget):
         upload_icon = QtGui.QIcon('./tab2_photo/download_icon.png')
         self.upload_btn.setIcon(upload_icon)
         self.upload_btn.setIconSize(QSize(210, 210))
-        self.upload_btn.setGeometry(290, 120, 210, 210)
+        self.upload_btn.setGeometry(300, 85, 210, 210)
         self.upload_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.upload_btn.show()
-        self.upload_btn.clicked.connect(lambda: self.play_btn_clicked())
+        self.upload_btn.clicked.connect(lambda: self.upload_btn_clicked())
 
 
 
 
 
 
-    def play_btn_clicked(self):
+    def upload_btn_clicked(self):
         self.fname = QFileDialog.getOpenFileName(self)[0]
         print(self.fname)
 
-
-        # 작곡중~
+        # jyp 작곡중
         self.jyp_movie = QMovie('./tab2_photo/jyp.gif')
-        self.jyp_movie.setScaledSize(QSize(220, 135))
+        self.jyp_movie.setScaledSize(QSize(250, 135))
         self.jyp_label = QLabel(self)
         self.jyp_label.setMovie(self.jyp_movie)
-        self.jyp_label.setGeometry(190, 280, 220, 135)
+        self.jyp_label.setGeometry(200, 265, 250, 135)
         self.movie = self.jyp_movie
         self.jyp_movie.start()
         self.jyp_movie.loopCount()
-        self.jyp_label.show()
+        # self.jyp_label.show()
+
+        self.ing_box = QLabel(self)
+        self.ing_box.setText("편곡중입니다. 잠시만 기다려 주세요~~")
+        self.ing_box.setFont(QtGui.QFont('배달의민족 주아', 10))
+        self.ing_box.setStyleSheet("Color: rgb(153,51,0); background-color: rgba(255,255,255,0)")
+        self.ing_box.setGeometry(200, 410, 250, 20)
+        self.ing_box.setAlignment(QtCore.Qt.AlignHCenter)
+        # self.ing_box.show()
 
 
-        # 편곡 로직
-        # time.sleep(10)
+        self.wait_voice = MusicPlay("./tab2_photo/arrangement.mp3")
+        self.wait_voice.play()
 
-        # 작곡중~ hide
-        # self.jyp_label.hide()
+        # th_wait = Thread(target=self.if_upload)
+        # th_wait.start()
+
+        # self.if_upload()
+        # self.music_result()
 
 
 
 
+    def if_upload(self):
+        max_time_end = time.time() + 2
+        while True:
+            self.jyp_label.show()
+            self.ing_box.show()
+            if time.time() > max_time_end:
+                self.jyp_label.hide()
+                self.ing_box.hide()
+                self.wait_voice.stop()
+                break
+        self.music_result()
 
-        # 결과 음악 실행 - ./test1.mid(이름 변경)
-        self.music_on = MusicPlay()
-        self.music_on.play()
 
+
+
+    def music_result(self):
 
         # play 버튼
         self.play_btn = QPushButton(self)
@@ -111,13 +137,23 @@ class SecondTab(QWidget):
         movie.start()
         movie.loopCount()
 
+        # 결과 음악 실행 - ./test1.mid(이름 변경)
+        self.music_on = MusicPlay("./test1.mid")
+        self.music_on.play()
+
+
 
 
 class MusicPlay():
-    def __init__(self):
+    def __init__(self, music_file):
         # super(MusicPlay, self).__init__(parent)
 
-        music_file = "./media/test1.mid"
+        self.music_file = music_file
+
+
+    def play(self):
+
+        # music_file = "./media/test1.mid"
 
         freq = 44100  # audio CD quality
         bitsize = -16  # unsigned 16 bit
@@ -129,16 +165,19 @@ class MusicPlay():
 
         clock = pygame.time.Clock()
         try:
-            self.player.music.load(music_file)
-            print(" %s 로드" % music_file)
+            self.player.music.load(self.music_file)
+            print(" %s 로드" % self.music_file)
         except pygame.error:
-            print(" %s 에러 (%s)" % (music_file, pygame.get_error()))
+            print(" %s 에러 (%s)" % (self.music_file, pygame.get_error()))
 
-    def play(self):
-        self.player.music.play(1)
+        self.player.music.play(-1)
 
     def stop(self):
         self.player.music.stop()
+
+    def pause(self):
+        self.player.music.pause()
+
 
 
 if __name__ == "__main__":

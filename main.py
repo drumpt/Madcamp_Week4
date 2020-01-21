@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import *
 import start_1
 import tab1
 import tab2
-import my_magenta
+# import my_magenta
 
 
 class mainWindow(QWidget):
@@ -38,8 +38,8 @@ if __name__ == "__main__":
 
     # my_magenta 실행
     # exec('my_magenta')
-    os.system('python my_magenta.py')
-    print("돼?>")
+    # os.system('python my_magenta.py')
+    # print("돼?>")
 
     ui = start_1.StartDialog()
     Dialog = QDialog()
