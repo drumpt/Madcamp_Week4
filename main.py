@@ -8,6 +8,7 @@ import start_1
 import tab1
 import tab2
 import tab3
+import tab4
 # import my_magenta
 
 
@@ -23,11 +24,13 @@ class mainWindow(QWidget):
         self.tab1 = tab1.FirstTab()
         self.tab2 = tab2.SecondTab()
         self.tab3 = tab3.ThirdTab()
+        self.tab4 = tab4.FourthTab()
 
         tabwidget = QTabWidget()
         tabwidget.addTab(self.tab1, "노래 추천")
         tabwidget.addTab(self.tab2, "편곡")
         tabwidget.addTab(self.tab3, "그림")
+        tabwidget.addTab(self.tab4, "짠")
         # tabwidget.setStyleSheet(
         #     "QTabBar::tab {width: 100px; height: 30px; border: 1px solid white; background-image: url(./tab1_photo/bgi.jpg); font-family: '배달의민족 주아'; font-size: 18px} \
         #     QTabBar::tab:selected{border: 1px solid white; background: rgb(255, 202, 62); font-family: '배달의민족 주아'; font-size: 18px;}"
