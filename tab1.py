@@ -11,7 +11,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from tensorflow.keras.models import load_model
 
-import my_magenta
+# import my_magenta
 
 # for face detection
 face_cascade = cv2.CascadeClassifier("C:/Users/q/Downloads/haarcascade_frontalface_alt.xml")
@@ -220,10 +220,10 @@ class FirstTab(QWidget):
         suggestionBox = QTextEdit(self)
         if self.emotion in ["happy", "sad"]:
             suggestionText = emotion_to_word2[self.emotion] + " 때는 이 노래가 최고죠!\n제가 직접 만들었어요ㅎㅎ"
-            if self.emotion == "happy":
-                my_magenta.tab1_happy()
-            elif self.emotion == "sad":
-                my_magenta.tab1_sad()
+            # if self.emotion == "happy":
+            #     my_magenta.tab1_happy()
+            # elif self.emotion == "sad":
+            #     my_magenta.tab1_sad()
         elif self.emotion == "angry":
             # suggestionText = emotion_to_word2[self.emotion]
             suggestionText = "분노와 교만에 지배되지 말아라.\n그 뿌리를 뽑아 버려라 - 불경(佛經)"

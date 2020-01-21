@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import *
 import start_1
 import tab1
 import tab2
-import my_magenta
+# import my_magenta
 
 
 class mainWindow(QWidget):
