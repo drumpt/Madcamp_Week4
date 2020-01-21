@@ -20,14 +20,14 @@ class SecondTab(QWidget):
     def init_window(self):
         self.setWindowTitle('다재다냥')
         self.setGeometry(600, 300, 640, 480)
-        self.setStyleSheet("QWidget {background-color: white; background-image: url(./tab1_photo/bgi.jpg); font-family:'배달의민족 주아'; src:'BMJUA_ttf.ttf'}")
+        self.setStyleSheet(
+            "QWidget {background-color: white; background-image: url(./tab1_photo/bgi.jpg); font-family:'배달의민족 주아'; src:'BMJUA_ttf.ttf'}")
         self.show()
 
     def setupUi(self):
         self.setGeometry(600, 300, 640, 480)
-
-        self.setStyleSheet(" {background-image: url(./tab1_photo/bgi.jpg); font-family:'배달의민족 주아'; src:'BMJUA_ttf.ttf'}")
-
+        self.setStyleSheet(
+            " {background-image: url(./tab1_photo/bgi.jpg); font-family:'배달의민족 주아'; src:'BMJUA_ttf.ttf'}")
 
         # 춤추는 냥이
         movie = QMovie('./tab2_photo/Cat_Dance4.gif')
@@ -46,7 +46,6 @@ class SecondTab(QWidget):
         self.initBox.setStyleSheet("Color: rgb(59,59,59); background-color: rgba(255,255,255,0)")
         self.initBox.setGeometry(300, 20, 250, 120)
         self.initBox.show()
-
 
         self.upload_btn = QPushButton(self)
         upload_icon = QtGui.QIcon('./tab2_photo/download_icon.png')
@@ -166,7 +165,6 @@ class SecondTab(QWidget):
 
     def result_music_pause(self):
         self.result_music_on.stop()
-
 
 class MusicPlay():
     def __init__(self, music_file):
