@@ -32,7 +32,7 @@ class SecondTab(QWidget):
         music_label = QLabel(self)
         music_label.setMovie(movie)
         music_label.show()
-        music_label.setGeometry(80, 30, 170, 200)
+        music_label.setGeometry(80, 20, 170, 200)
         self.movie = movie
         movie.start()
         movie.loopCount()
@@ -41,14 +41,14 @@ class SecondTab(QWidget):
         self.initBox.setText("당신의 음악을 편곡해드릴게요!<br><br>원하는 노래를 선택해주세요")
         self.initBox.setFont(QtGui.QFont('배달의민족 주아', 15))
         self.initBox.setStyleSheet("Color: rgb(59,59,59); background-color: rgba(255,255,255,0)")
-        self.initBox.setGeometry(300, 20, 250, 120)
+        self.initBox.setGeometry(300, 10, 250, 120)
         self.initBox.show()
 
         self.upload_btn = QPushButton(self)
         upload_icon = QtGui.QIcon('./tab2_photo/download_icon.png')
         self.upload_btn.setIcon(upload_icon)
         self.upload_btn.setIconSize(QSize(210, 210))
-        self.upload_btn.setGeometry(300, 90, 210, 210)
+        self.upload_btn.setGeometry(300, 75, 210, 210)
         self.upload_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.upload_btn.show()
         self.upload_btn.clicked.connect(lambda: self.upload_btn_clicked())
@@ -58,7 +58,7 @@ class SecondTab(QWidget):
         play_icon = QtGui.QIcon('./tab1_photo/play.png')
         self.play_btn.setIcon(play_icon)
         self.play_btn.setIconSize(QSize(50, 50))
-        self.play_btn.setGeometry(90, 335, 50, 50)
+        self.play_btn.setGeometry(90, 325, 50, 50)
         self.play_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         # self.play_btn.clicked.connect(lambda: self.result_music_play())  # 재생
         self.play_btn.clicked.connect(lambda: self.result_music_on.play())  # 재생
@@ -69,7 +69,7 @@ class SecondTab(QWidget):
         pause_icon = QtGui.QIcon('./tab1_photo/pause.png')
         self.pause_btn.setIcon(pause_icon)
         self.pause_btn.setIconSize(QSize(50, 50))
-        self.pause_btn.setGeometry(148, 335, 50, 50)
+        self.pause_btn.setGeometry(148, 325, 50, 50)
         self.pause_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         # self.pause_btn.clicked.connect(lambda: self.result_music_pause())  # 재생
         self.pause_btn.clicked.connect(lambda: self.result_music_on.stop())  # 재생
@@ -80,7 +80,7 @@ class SecondTab(QWidget):
         self.movie.setScaledSize(QSize(330, 80))
         self.music_label = QLabel(self)
         self.music_label.setMovie(self.movie)
-        self.music_label.setGeometry(210, 315, 330, 80)
+        self.music_label.setGeometry(210, 305, 330, 80)
         self.movie = self.movie
         self.movie.start()
         self.movie.loopCount()
@@ -110,10 +110,10 @@ class SecondTab(QWidget):
 
         # jyp 작곡중
         self.jyp_movie = QMovie('./tab2_photo/jyp.gif')
-        self.jyp_movie.setScaledSize(QSize(250, 135))
+        self.jyp_movie.setScaledSize(QSize(220, 135))
         self.jyp_label = QLabel(self)
         self.jyp_label.setMovie(self.jyp_movie)
-        self.jyp_label.setGeometry(200, 265, 250, 135)
+        self.jyp_label.setGeometry(190, 240, 220, 135)
         self.movie = self.jyp_movie
         self.jyp_movie.start()
         self.jyp_movie.loopCount()
@@ -121,9 +121,9 @@ class SecondTab(QWidget):
 
         self.ing_box = QLabel(self)
         self.ing_box.setText("편곡중입니다. 잠시만 기다려주세요~~")
-        self.ing_box.setFont(QtGui.QFont('배달의민족 주아', 10))
+        self.ing_box.setFont(QtGui.QFont('배달의민족 주아', 13))
         self.ing_box.setStyleSheet("Color: rgb(153,51,0); background-color: rgba(255,255,255,0)")
-        self.ing_box.setGeometry(200, 410, 250, 20)
+        self.ing_box.setGeometry(175, 390, 250, 20)
         self.ing_box.setAlignment(QtCore.Qt.AlignHCenter)
         # self.ing_box.hide()
 
