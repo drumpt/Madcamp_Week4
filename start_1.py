@@ -1,12 +1,12 @@
 import os
 
+import main
 import pygame
 from PyQt5 import QtCore, QtGui
 from PyQt5.QtCore import QSize
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import *
-
-import main
+# import my_magenta
 
 
 class StartDialog():
@@ -22,6 +22,11 @@ class StartDialog():
         self.__cat_index = index
 
     def setupUi(self, Dialog):
+        #
+        # # my_magenta 실행
+        # exec('my_magenta')
+
+
         self.__cat_index = -1
         self.__musicThread = MusicPlay()
         self.__musicThread.play()
@@ -32,10 +37,10 @@ class StartDialog():
         Dialog.setWindowTitle("다재다냥★♬")
 
         self.start_btn = QPushButton(Dialog)
-        self.start_btn.setGeometry(250, 100, 150, 150)
+        self.start_btn.setGeometry(240, 85, 180, 180)
         start_icon = QtGui.QIcon('./tab1_photo/git.png')
         self.start_btn.setIcon(start_icon)
-        self.start_btn.setIconSize(QtCore.QSize(150, 150))
+        self.start_btn.setIconSize(QtCore.QSize(180, 180))
         self.start_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
 
         self.start_btn.clicked.connect(lambda: self.second(Dialog))
@@ -61,22 +66,15 @@ class StartDialog():
         _translate = QtCore.QCoreApplication.translate
         self.title.setText(_translate("Dialog", "가장 마음에 드는 펫을 선택하세요"))
         self.title.setFont(QtGui.QFont('배달의민족 주아', 15))
-        # self.title.setStyleSheet("Color:red")
-
-        self.title.setGeometry(185, 50, 300, 50)
+        self.title.setStyleSheet("Color: rgb(30,30,30)")
+        self.title.setGeometry(190, 45, 300, 50)
         self.title.show()
 
-        # self.title = QTextEdit(Dialog)
-        # self.title.setText("앱 이름")
-        # self.title.setStyleSheet("QTextEdit { border-radius: 10px; padding: 10px;}")
-        # self.title.setGeometry(QtCore.QRect(200, 20, 200, 100))
-        # self.title.setObjectName("title")
-        # self.title.setReadOnly(True)
 
         # previous 버튼
         self.previous_btn = QPushButton(Dialog)
-        self.previous_btn.setGeometry(QtCore.QRect(50, 225, 80, 80))
-        previous_icon = QtGui.QIcon('previous.png')
+        self.previous_btn.setGeometry(65, 190, 80, 80)
+        previous_icon = QtGui.QIcon('./tab1_photo/previous.png')
         self.previous_btn.setIcon(previous_icon)
         self.previous_btn.setIconSize(QtCore.QSize(80, 80))
         self.previous_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
@@ -84,22 +82,13 @@ class StartDialog():
 
         # next 버튼
         self.next_btn = QPushButton(Dialog)
-        self.next_btn.setGeometry(QtCore.QRect(510, 225, 80, 80))
-        next_icon = QtGui.QIcon('next.png')
+        self.next_btn.setGeometry(490, 190, 80, 80)
+        next_icon = QtGui.QIcon('./tab1_photo/next.png')
         self.next_btn.setIcon(next_icon)
         self.next_btn.setIconSize(QtCore.QSize(80, 80))
         self.next_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.next_btn.show()
 
-        # # 실행 버튼
-        # self.onoff = QDialogButtonBox(Dialog)
-        # self.onoff.setGeometry(QtCore.QRect(450, 440, 156, 23))
-        # self.onoff.setOrientation(QtCore.Qt.Horizontal)
-        # self.onoff.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
-        # self.onoff.setObjectName("onoff")
-        # # self.onoff.accepted.connect(Dialog.accept)
-        # # self.onoff.accepted.setIcon( QtGui.QIcon('next.png'))
-        # self.onoff.rejected.connect(Dialog.reject)
 
         # 시작 버튼
         self.select_btn = QPushButton(Dialog)
@@ -179,7 +168,7 @@ class StartDialog():
         # self.cat_label.setImage(self.cat_imgs)
         self.cat_label.setPixmap(self.cat_imgs)
         self.cat_label.show()
-        self.cat_label.setGeometry(190, 90, 250, 250)
+        self.cat_label.setGeometry(190, 110, 250, 250)
 
         self.cat_txtname = QLabel(Dialog)
         file_name = cat_list[self.__cat_index]
@@ -187,9 +176,10 @@ class StartDialog():
         print(cat_name)
         self.cat_txtname.setText(cat_name)
         # self.cat_txtname.setStyleSheet(" { font-family: 'Malgun Gothic'; background-color: rgba(255, 255, 255, 0%);}")
-        self.cat_txtname.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
+        self.cat_txtname.setStyleSheet("background-color: rgba(255, 255, 255, 0); Color: rgb(30,30,30)")
+        self.cat_txtname.setAlignment(QtCore.Qt.AlignHCenter)
         self.cat_txtname.setFont(QtGui.QFont('배달의민족 주아', 15))
-        self.cat_txtname.setGeometry(290, 350, 50, 30)
+        self.cat_txtname.setGeometry(190, 387, 250, 30)
         self.cat_txtname.show()
 
 
