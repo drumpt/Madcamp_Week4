@@ -15,7 +15,6 @@ import magenta.music as mm
 from magenta.music import midi_synth
 from magenta.music import constants
 
-
 import pretty_midi
 import bokeh
 import bokeh.plotting

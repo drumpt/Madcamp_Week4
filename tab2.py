@@ -1,8 +1,6 @@
 # import main
-import os
-from threading import Thread
-
 import time
+from threading import Thread
 
 import pygame
 from PyQt5 import QtGui, QtCore
@@ -10,7 +8,6 @@ from PyQt5.QtCore import *
 # from PyQt5 import QtM
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-
 
 
 class SecondTab(QWidget):
@@ -56,7 +53,6 @@ class SecondTab(QWidget):
         self.upload_btn.show()
         self.upload_btn.clicked.connect(lambda: self.upload_btn_clicked())
 
-
         # play 버튼
         self.play_btn = QPushButton(self)
         play_icon = QtGui.QIcon('./tab1_photo/play.png')
@@ -67,7 +63,6 @@ class SecondTab(QWidget):
         self.play_btn.clicked.connect(lambda: self.result_music_play())  # 재생
         self.play_btn.hide()
 
-
         # pause 버튼
         self.pause_btn = QPushButton(self)
         pause_icon = QtGui.QIcon('./tab1_photo/pause.png')
@@ -77,7 +72,6 @@ class SecondTab(QWidget):
         self.pause_btn.setStyleSheet("background-color: rgba(255, 255, 255, 0);")
         self.pause_btn.clicked.connect(lambda: self.result_music_pause())  # 재생
         self.pause_btn.hide()
-
 
         # music wave gif
         self.movie = QMovie('./tab1_photo/wave.gif')
@@ -90,8 +84,6 @@ class SecondTab(QWidget):
         self.movie.loopCount()
         self.music_label.hide()
 
-
-
     def upload_btn_clicked(self):
 
         path = QFileDialog.getOpenFileName(self)[0]
@@ -99,6 +91,9 @@ class SecondTab(QWidget):
         fname = split_path[len(split_path) - 1]
         print("input 파일 : ", fname)
 
+        self.play_btn.hide()
+        self.pause_btn.hide()
+        self.music_label.hide()
 
         if fname == "prelude_in_c_major.mid":
             self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2도미솔도.mp3")
@@ -110,10 +105,6 @@ class SecondTab(QWidget):
             self.result_music_on = MusicPlay("./media/arrangement/제인픽_탭2작은별")
         else:
             self.result_music_on = MusicPlay("./test1.mid")
-
-
-
-
 
         # jyp 작곡중
         self.jyp_movie = QMovie('./tab2_photo/jyp.gif')
@@ -140,9 +131,6 @@ class SecondTab(QWidget):
         th_wait = Thread(target=self.if_upload)
         th_wait.start()
 
-
-
-
     def if_upload(self):
         max_time_end = time.time() + 7
         while True:
@@ -158,13 +146,12 @@ class SecondTab(QWidget):
         self.pause_btn.show()
         self.music_label.show()
 
-
-
     def result_music_play(self):
         self.result_music_on.play()
 
     def result_music_pause(self):
         self.result_music_on.stop()
+
 
 class MusicPlay():
     def __init__(self, music_file):
@@ -197,7 +184,6 @@ class MusicPlay():
 
     def pause(self):
         self.player.music.pause()
-
 
 
 if __name__ == "__main__":
